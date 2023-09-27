@@ -17,6 +17,8 @@ function aldertest(){
 
       //tester fra askmind @ErikBrorby
 
+      //TE
+
       //test 2 
 
       
