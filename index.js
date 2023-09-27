@@ -19,7 +19,7 @@ function aldertest(){
 
       //test 2 
 
-      //Hei @askmind
+      
 
 
     document.getElementById("oppgave1").innerHTML = melding;
@@ -150,7 +150,4 @@ function Arrays2(){
     fasit += "</ul>"
 
     document.getElementById("oppgave7").innerHTML = fasit;
-
-//dette er meg
-
 }
