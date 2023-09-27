@@ -21,6 +21,7 @@ function aldertest(){
 
       
 
+    //Tester
 
     document.getElementById("oppgave1").innerHTML = melding;
 }
