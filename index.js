@@ -21,6 +21,7 @@ function aldertest(){
 
       //Hei @askmind
 
+    //Tester
 
     document.getElementById("oppgave1").innerHTML = melding;
 }
