@@ -20,6 +20,9 @@ function aldertest(){
     document.getElementById("oppgave1").innerHTML = melding;
 }
 
+
+//Dette er en test
+
 //Oppgave 2
 
 function talltest(){
