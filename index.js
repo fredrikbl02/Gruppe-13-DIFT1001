@@ -15,7 +15,12 @@ function aldertest(){
     }
 
 
+      //tester fra askmind @ErikBrorby
+
+      //test 2 
+
       
+
 
     document.getElementById("oppgave1").innerHTML = melding;
 }
