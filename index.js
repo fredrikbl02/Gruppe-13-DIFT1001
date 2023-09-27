@@ -27,7 +27,7 @@ function aldertest(){
 }
 
 
-//Dette er en test
+//Dette er en test //heieieieieei
 
 //Oppgave 2
 
