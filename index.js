@@ -150,4 +150,7 @@ function Arrays2(){
     fasit += "</ul>"
 
     document.getElementById("oppgave7").innerHTML = fasit;
+
+//dette er meg
+
 }
