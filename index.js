@@ -19,7 +19,7 @@ function aldertest(){
 
       //test 2 
 
-      
+      //Hei @askmind
 
 
     document.getElementById("oppgave1").innerHTML = melding;
