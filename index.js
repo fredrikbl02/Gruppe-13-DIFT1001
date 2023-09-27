@@ -24,6 +24,7 @@ function aldertest(){
       
 
     //Tester
+    //Hei @ErikBrorby og @askmind
 
     document.getElementById("oppgave1").innerHTML = melding;
 }
