@@ -15,9 +15,6 @@ function aldertest(){
     }
 
 
-    //tester
-    
-
       //tester fra askmind @ErikBrorby
 
       //TE
@@ -27,7 +24,6 @@ function aldertest(){
       
 
     //Tester
-    //Hei @ErikBrorby og @askmind
 
     document.getElementById("oppgave1").innerHTML = melding;
 }
