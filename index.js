@@ -15,19 +15,25 @@ function aldertest(){
     }
 
 
+    //tester
+    
+
       //tester fra askmind @ErikBrorby
+
+      //TE
 
       //test 2 
 
       
 
     //Tester
+    //Hei @ErikBrorby og @askmind
 
     document.getElementById("oppgave1").innerHTML = melding;
 }
 
 
-//Dette er en test
+//Dette er en test //heieieieieei
 
 //Oppgave 2
 
