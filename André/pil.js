@@ -1,0 +1,1 @@
+//her tenker jeg å kode pilen som blir skutt ut og treffer enten eple eller noe annet
