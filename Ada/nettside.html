@@ -1,76 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spill</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spillnettside</title>
     
 
-    <!--Link til JQuery biblioteket-->
 
+        <!--Link til JQuery biblioteket (skal brukes til å fade spillet på nettsiden)-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Dette er linkene til bootstrap biblioteket -->
-
+        <!-- Linker til bootstrap biblioteket (brukes til navigasjonsmeny)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
+        <!-- Link til CSS dokument -->
+    <link rel="stylesheet" type="text/css" href="nettside.css">
+
+        <!-- Link til JS -->
+    <script src="nettside.js"></script>
+
 </head>
+
+
 
 <body>
 
+        <!-- Hovedoverskriften (overskriften bør endres!! 
+        Farger kan også endres til å evt passe best mulig til spillet) -->
 
     <div id="hovedoverskrift" class="text-center container mt-3">
-
-    <h1 class="display-4">Overskrift kommer her</h1></div>
-
-
-
-<!-- Navigasjonsmeny (Bootstrap)-->
-
-<nav class="navbar navbar-expand-sm navbar-light bg-pink">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="nettside.html">Startside</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span class="navbar-toggler-icon"></span></button>
-          
-        <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                <a class="nav-link" href="her kommer link">Side 2</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="her kommer link">Side 3</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="her kommer link">Side 4</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="(her kommer link til neste side)">Side 5</a>
-                </li>
-            </ul>
-        </div>
+        <header class="display-4">Spillprosjekt</header>
     </div>
-</nav>
-      
 
-     <!-- Hovedoverskrift -->
 
-     <br>
-     <h1>OVERSKRIFT</h1>
-<br>
-     <p>Her kommer det litt informasjon om siden/spillet</p>
-    
-    <br><br><br><br>
+        <!-- Navigasjonsmeny (Bootstrap brukes her). Her kan vi f.eks legge inn et spill pr side i menyen, fjerne noen sider, 
+        og endre navn på startsiden? Husk å legge inn linker til sidene!! Skulle vi lagt inn noe rapporter og sånn på noen 
+        av de andre sidene?? Bør de andre sidene i oppgaven også ha nav.bar for å enkelt kunne bla mellom de?-->
 
-    <hr>
-    <p>Gruppe 13</p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
+    <nav class="navbar navbar-expand-sm navbar-light bg-grey">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="nettside.html">Startside</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span class="navbar-toggler-icon"></span></button>
+            
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav mx-auto justify-content-between">
+                        <li class="nav-item">
+                            <a class="nav-link" href="herkommerlink">Side 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="herkommerlink">Side 3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="herkommerlink">Side 4</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="herkommerlink">Side 5</a>
+                        </li>
+                    </ul>
+                </div>
         
+    
+        </div>
+    </nav>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+        <!-- Overskrift og informasjon (NAVN PÅ SPILL LEGGES INN SENERE! SAMT INFORMASJON OM SPILLET. 
+        KANSKJE HVORDAN MAN SPILLER DET?) -->
+
+        <h1 id ="overskrift1">SPILLNAVN</h1>
+
+    <br>
+     
+        <p id ="info">Her kommer det litt informasjon om siden/spillet.<br> Klikk på bildet nedenfor for å komme direkte til spillet vårt.</p>
+    
+    <br>
+    <br>
+    <br>
+
+        <!--Her kommer link til spillet. Den ordentlige linken må legges til senere. Og bildet kan byttes ut til mer passende, eller noe fra selve spillet-->
+        
+        <a href="test.html">
+            <img id="kortbilde" src="kortspillbilde.jpg" alt="kortspill">
+        </a>
+
+    <br>
+    <br>
+    <br>
+
+        <!-- Bunntekst med gruppe- og oppgaveinformasjon -->
+
+    <div id="bunntekst">
+        
+        <hr>
+
+        <div class="infospillgruppe gruppe1">      
+        <br>
+        <br>
+
+            Spillprosjekt H2023<br>
+            Webutvikling og Teamarbeid<br>
+            (Digital forretningsutvikling)<br><br>
+            NTNU Trondheim<br><br>
+        </div>
+
+        <div class= "infospillgruppe gruppe2"> 
+            
+        <br>
+
+            <b>Gruppe 13:</b>
+            <br>
+            Erik Thaulow Brørby
+            <br>
+            André Sjursen Karsten
+            <br>
+            Fredrik Bråten Lundberg
+            <br>
+            Nicolay Emil Fremstad Løvlie
+            <br>
+            Ada Bjørk Munthe
+            <br>
+            <br>
+
+        </div>
+
+        <br>
+
+    </div>        
 
 </body>
 </html>
