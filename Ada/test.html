@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</head>
+<body>
+
+<div id="overskrift"><h1>Øving 5 – JQuery</h1></div>
+<p id="kilde">(Bilder hentet fra Google)</p>
+<br>
+
+    <img src="https://image.forskning.no/2128003.webp?imageId=2128003&x=0.00&y=0.00&cropw=100.00&croph=100.00&width=964&height=700&format=jpg" id="nordlys" width="400px" height="300px">
+    <img src="https://imaginary.abcmedia.no/resize?width=980&force=false&url=https%3A%2F%2Fabcnyheter.drpublish.aptoma.no%2Fout%2Fimages%2Farticle%2F2017%2F12%2F11%2F195355254%2F1%2Foriginal%2F4517802.jpg" id="norge" width="400" height="300">
+    <img src="https://images.squarespace-cdn.com/content/v1/57d29fb7414fb53b53085151/1506600022124-LRDT5LF82PRNAQE9VMPQ/manarola-cinque-terre-italia-fargerik-by-vikfoto.jpg?format=1500w" id="utland" width="400" height="300">
+    <img src="https://cdn.pixabay.com/photo/2016/10/21/14/46/fox-1758183_1280.jpg" id="hund" width="400" height="300">
+    <img src="https://s1.1zoom.me/big0/763/Germany_Winter_Evening_Trees_Snow_600121_1280x719.jpg" id="tre" width="400" height="300">
+
+<script>
+
+    $(document).ready(function(){
+    $("#nordlys").css("opacity", 0.5);
+        $("#nordlys").mouseenter(function() {
+
+            $(this).animate({opacity: 1});
+        });
+            $("#nordlys").mouseleave(function(){
+            $(this).animate({opacity: 0.5});
+        });
+    
+    });
+
+    $(document).ready(function(){
+        $("#norge").css("opacity", 0.5);
+        $("#norge").mouseenter(function(){
+            $(this).animate({opacity: 1});
+        });
+            $("#norge").mouseleave(function(){
+            $(this).animate({opacity: 0.5});
+            });
+
+    });
+
+    $(document).ready(function(){
+        $("#utland").css("opacity", 0.5);
+        $("#utland").mouseenter(function(){
+            $(this).animate({opacity: 1});
+        });
+
+        $("#utland").mouseleave(function(){
+        $(this).animate({opacity: 0.5});
+
+        });
+    });
+
+    $(document).ready(function(){
+        $("#hund").css("opacity", 0.5);
+        $("#hund").mouseenter(function(){
+            $(this).animate({opacity: 1});
+        });
+
+        $("#hund").mouseleave(function(){
+            $(this).animate({opacity: 0.5});
+        });
+    });
+
+    $(document).ready(function(){
+        $("#tre").css("opacity", 0.5);
+        $("#tre").mouseenter(function(){
+            $(this).animate({opacity: 1});
+        });
+
+        $("#tre").mouseleave(function(){
+            $(this).animate({opacity: 0.5});
+        });
+    });
+    
+        </script>
+</body>
+</html>
+
