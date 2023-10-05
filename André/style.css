@@ -6,7 +6,15 @@ body {
 
 }
 
-#kort {
+.kort {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.kort img {
     width: 100px;
     height: 130px;
 }
