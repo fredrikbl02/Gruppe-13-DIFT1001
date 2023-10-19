@@ -1,16 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   
-  
-
-function StartButton () {
-    
-}
-
 const bak = document.getElementsByClassName("bak"); //henter ut alt med class "bak" og lagrer det i en variabel
 const foran = document.getElementsByClassName("foran"); //henter ut alt med class "foran";
 const kort = document.getElementsByClassName("kort"); //henter ut alt med class "kort";
 
-let antallKlikk = 0;
+
 
 for (const bakside of bak) { //dette er en for of loop som kjører gjennom hvert element med class "bak". 
     bakside.addEventListener("click", function() { //her hører programmet etter et "click" på en av bildene med class "bak"
@@ -41,18 +35,20 @@ for (const kortside of kort) {
         console.log("Match!");
       } else {
         console.log("No match!");
-        () => {
-         firstCard = bak.parentElement.classList.toggle("flipped"); 
-         secondCard = bak.parentElement.classList.toggle("flipped");
-        }
-      }
+        setTimeout(() => {
+        firstCard.style.opacity = "1";
+        secondCard.style.opacity = "1";
+        
+        }, 1000);
+        
+      };
 
       // Reset the firstCard and secondCard for the next turn
       firstCard = null;
       secondCard = null;
-    }
+    };
   });
-}
+};
 
 
 
