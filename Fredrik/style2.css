@@ -29,5 +29,17 @@ body {
 }
 
 .kort.flipped .bak{
-    opacity: 0;
+    display: none;
+}
+
+.kort.matched .foran {
+  display: block;
+}
+
+.kort.flipped .foran {
+  display: none;
+}
+
+.kort.flipped:not(.matched) .foran {
+  display: none;
 }
