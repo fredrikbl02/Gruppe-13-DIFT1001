@@ -83,3 +83,31 @@ function shuffleCards() {
 
 
 });
+
+let timerSeconds = 0;
+let timerInterval;
+
+function updateTimer() {
+  timerSeconds ++;
+  document.getElementById("timer").textContent = "Time: " + timerSeconds + " seconds";
+}
+
+function startTimer() {
+  timerSeconds = 0;
+  document.getElementById("timer").textContent = "Time: 0 seconds";
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
+function resetTimer() {
+  clearInterval(timerInterval);
+  document.getElementById("timer").textContent = "Time: 0 seconds";
+}
+
+// The StartButton function to start the game and timer
+function StartButton() {
+  startTimer(); // Start the timer when the button is pressed
+}
+
+// Add an event listener for the "Reset" button or other game functionality
+document.getElementById("resetButton").addEventListener("click", resetTimer);
+
