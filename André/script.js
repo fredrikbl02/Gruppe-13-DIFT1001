@@ -41,8 +41,9 @@ for (const kortside of kort) {
         console.log("Match!");
       } else {
         console.log("No match!");
-        function () => {
-          
+        () => {
+         firstCard = bak.parentElement.classList.toggle("flipped"); 
+         secondCard = bak.parentElement.classList.toggle("flipped");
         }
       }
 
