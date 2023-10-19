@@ -1,9 +1,32 @@
 body {
-    background-color: lightgrey;
+    background-color: rgb(12, 166, 61);
   }
   
 #StartButton {
+   
+}
 
+#timer {
+  position: absolute;
+  top: 45%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: 16px;
+
+}
+
+#newGameButton {
+  position: absolute;
+  top: 35%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .kort_spill {
