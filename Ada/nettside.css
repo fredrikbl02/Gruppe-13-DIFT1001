@@ -6,10 +6,14 @@ body{
 }
 
 #hovedoverskrift {
-    color: cornflowerblue; 
     font-size: 200px;
-    padding-top: 60px;
-    padding-bottom: 65px;
+    padding-top: 100px;
+    padding-bottom: 110px;
+}
+
+.hovedoverskriften {
+    text-decoration: none;
+    color: cornflowerblue;
 }
 
 .navbar {
@@ -54,7 +58,12 @@ body{
 
 }
 
+#info {
+    padding-left: 10%;
+    padding-right: 10%;
 
+
+}
 
 #bunntekst {
     text-align: center;
