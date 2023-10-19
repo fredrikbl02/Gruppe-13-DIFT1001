@@ -34,3 +34,12 @@ for (const flipp of bak) {
 
 
 });
+
+//Denne funksjonen plasserer kortene tilfeldig
+function shuffleCards() {
+  var kort = document.querySelectorAll('.kort');
+  kort.forEach(kort => {
+      var randomPos = Math.floor(Math.random() * 16);
+      kort.style.order = randomPos;
+  });
+}
