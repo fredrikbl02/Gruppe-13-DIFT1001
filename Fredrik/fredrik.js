@@ -33,13 +33,12 @@ document.addEventListener("DOMContentLoaded", function () {
   
   
  
- 
- 
+  let matchesFound = 0;
   let timerSeconds = 0;
   let timerInterval;
   
   function updateTimer() {
-    timerSeconds ++;
+    timerSeconds++;
     document.getElementById("timer").textContent = "Time: " + timerSeconds + " seconds";
   }
   
@@ -49,36 +48,26 @@ document.addEventListener("DOMContentLoaded", function () {
     timerInterval = setInterval(updateTimer, 1000);
   }
   
-  function resetTimer() {
+  function stopTimer() {
     clearInterval(timerInterval);
-    document.getElementById("timer").textContent = "Time: 0 seconds";
-  }
-  
-  // The StartButton function to start the game and timer
-  function StartButton() {
-    startTimer(); // Start the timer when the button is pressed
-  }
-  
-  // Add an event listener for the "Reset" button or other game functionality
-  document.getElementById("resetButton").addEventListener("click", resetTimer);
-
-  
-  
-  
-  
-  
-  let matchesFound = 0;
-
-  function finnmatcher(){
-  if (i % 7 === 0) { // Example matching condition (replace with your actual condition)
-    matchesFound++;
-    console.log("Match found!");
+    document.getElementById("timer").textContent = "Time: " + timerSeconds + " seconds";
+   
   }
 
-  if (matchesFound === 8) {
-    console.log("8 matches found. Stopping the loop.");
- 
+  
+  // Your matching logic goes here
+  for (let i = 1; i <= 100; i++) { // Replace 100 with your actual limit
+    // Your matching logic here
+    if (i % 7 === 0) { // Example matching condition (replace with your actual condition)
+      matchesFound++;
+      console.log("Match found!");
+  
+      if (matchesFound === 8) {
+        console.log("8 matches found. Stopping the timer.");
+        stopTimer(); // Stop the timer when 8 matches are found
+        break; // Exit the loop
+      }
+    }
   }
-}
-
-console.log("Loop finished.");
+  
+  console.log("Loop finished.");

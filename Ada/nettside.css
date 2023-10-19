@@ -1,0 +1,87 @@
+body{ 
+    background-color: whitesmoke; 
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+
+#hovedoverskrift {
+    font-size: 200px;
+    padding-top: 100px;
+    padding-bottom: 110px;
+}
+
+.hovedoverskriften {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+.navbar {
+    background-color: lightgrey;
+    
+}
+
+
+
+
+.nav-item {
+    background-color: whitesmoke;
+}
+
+.nav-link {
+    color:black;
+}
+
+#startside {
+    font-size: 100px;
+}
+
+#sideto {
+    font-size: 100px;
+}
+
+#sidetre {
+    font-size: 100px;
+}
+
+#sidefire {
+    font-size: 100px;
+}
+
+#sidefem{
+    font-size: 100px;
+}
+
+
+#overskrift1 {
+    color:cornflowerblue;
+
+}
+
+#info {
+    padding-left: 10%;
+    padding-right: 10%;
+
+
+}
+
+#bunntekst {
+    text-align: center;
+    background-color: lightgrey;
+    color: black;
+}
+
+.infospillgruppe {
+     width: 50%;
+     box-sizing: border-box; 
+     float: left;
+}
+
+.gruppe1 {
+    background-color: lightgrey;
+}
+
+.gruppe2 {
+    background-color: lightgrey;
+
+}
