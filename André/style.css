@@ -12,13 +12,15 @@ body {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+    background-color: blue;
   }
 
 .kort {
-    width: 25%;
-    height: 33.333%;
+    width: 20%;
+    height: 28%;
     margin: 5px;
     position: relative;
+   
 }
 
 .foran, .bak {
@@ -30,5 +32,10 @@ body {
 
 .kort.flipped .bak{
     opacity: 0;
+}
+
+.foran {
+ 
+  
 }
 
