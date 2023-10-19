@@ -23,12 +23,45 @@ for (const bakside of bak) { //dette er en for of loop som kjører gjennom hvert
   };
 
 // dette er funksjon for å matche kort med hverandre
-  
+
+let firstCard = null;
+let secondCard = null;
+
+for (const kortside of kort) {
+  kortside.addEventListener("click", function () {
+    if (!firstCard) {
+      // If firstCard is null, this is the first card being clicked
+      firstCard = kortside.dataset.framework;
+    } else if (!secondCard) {
+      // If firstCard is assigned, but secondCard is still null, this is the second card being clicked
+      secondCard = kortside.dataset.framework;
+
+      // Now, you can compare their data-framework values
+      if (firstCard === secondCard) {
+        console.log("Match!");
+      } else {
+        console.log("No match!");
+        function () => {
+          
+        }
+      }
+
+      // Reset the firstCard and secondCard for the next turn
+      firstCard = null;
+      secondCard = null;
+    }
+  });
+}
+
+
+
+// denne funksjonen viser verdien til kortene
 
 for (const kortside of kort) {
   kortside.addEventListener("click", function () {
     const clickedCardValue = kortside.dataset.framework;
     console.log("Clicked card value forside: " + clickedCardValue);
+    
   });
 }
 
