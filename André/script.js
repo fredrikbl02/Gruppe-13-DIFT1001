@@ -9,10 +9,6 @@ const kort = document.getElementsByClassName("kort"); //henter ut alt med class 
 for (const bakside of bak) { //dette er en for of loop som kjører gjennom hvert element med class "bak". 
     bakside.addEventListener("click", function() { //her hører programmet etter et "click" på en av bildene med class "bak"
       bakside.parentElement.classList.toggle("flipped"); //når den hører et klikk setter den en css style som heter "flipped" til true
-      // antallKlikk++;
-       //if (test) {  //i denne funksjonen prøver jeg å få kortene til å flippe tilbake til baksiden sin når baksidene har blitt trykket på partall antall ganger
-        
-      // }
     });
   };
 
@@ -36,16 +32,19 @@ for (const kortside of kort) {
       } else {
         console.log("No match!");
         setTimeout(() => {
-        firstCard.style.opacity = "1";
-        secondCard.style.opacity = "1";
+          console.log(firstCard);
+          console.log(secondCard);
         
         }, 1000);
         
       };
 
       // Reset the firstCard and secondCard for the next turn
-      firstCard = null;
+      setTimeout(() => {
+        firstCard = null;
       secondCard = null;
+      }, 1100);
+      
     };
   });
 };
