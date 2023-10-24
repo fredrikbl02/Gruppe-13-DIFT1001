@@ -41,7 +41,9 @@ function StartButton() {
 
   
   
-
+//Ønsker å jobbe videre med å få til en lagring av high score i en en fs.writeFile ved hjelp av JSON
+//Burde prøve å få timeren til å se bra ut?? Hundredeler eller tideler?
+//
   }
   
   
