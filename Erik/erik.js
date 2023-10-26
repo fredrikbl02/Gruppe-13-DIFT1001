@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let seconds = 0;
       let tideler = 0;
       time.innerText = formatTime(seconds, tideler);
+      let button = document.getElementById("newGameButton");
 
 
 
@@ -110,8 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let minutes = Math.floor(seconds/60); //Beregner antall minutter ved å ta heltall sekunder / 60, dvs -->
         //80 sekunder blir fortsatt 60=1 minutt fordi det er nærmeste hele tall
         let remainingSeconds = seconds % 60; //Beregner antall sekunder det er igjen ved hjelp av modulus
+        let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
         //F.eks. 200%60 blir 20 fordi 60*3= 180, 20 i rest. Dette betyr 3 minutter og 20 sekunder
-        let timer = minutes + " " + "minutt" + " " + remainingSeconds + " " + "sekunder" + " " + tideler + " " + "tideler"; //Skriver ut
+        let timer = minutes + ":" + formattedSeconds + ":" + tideler; //Skriver ut
         return timer; //Skriver ut
       }
 
@@ -124,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // noe å kalle på når timeren skal stoppe, ikke laget ennå.
 
     
-    
+    button.style.display = "none";
  
     }
     
