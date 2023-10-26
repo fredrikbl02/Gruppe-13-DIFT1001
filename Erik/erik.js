@@ -148,7 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-       displayHighscores();
 
     }
     
