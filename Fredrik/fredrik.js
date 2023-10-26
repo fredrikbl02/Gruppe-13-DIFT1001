@@ -70,9 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
     clearInterval(timerInterval);
     document.getElementById("timer").textContent = "Time: 0 seconds";
   }
-
   
 
   // Add an event listener for the "Reset" button or other game functionality
   document.getElementById("resetButton").addEventListener("click", resetTimer);
 });
+
