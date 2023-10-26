@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
             if (count === 8) {
+                clearInterval(timer)
                 setTimeout(() => {
                     alert("you won!")
                 }, 800);
