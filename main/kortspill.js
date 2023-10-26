@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let firstCard = null;
     let secondCard = null;
     let isFlipping = false; // To prevent clicking more cards while comparison is in progress
+    let count = 0; 
     
     for (const kortside of kort) {
       kortside.addEventListener("click", function () {
@@ -36,9 +37,18 @@ document.addEventListener("DOMContentLoaded", function () {
           if (firstCard.dataset.framework === secondCard.dataset.framework && firstCard !== secondCard) {
             console.log("Match!");
             //teller opp antall matcher
-            for (i = 0; i > 0; i++) {
+        
+            if (count < 8) {
+                count++;
+            };
+
+            if (count === 8) {
+                setTimeout(() => {
+                    alert("you won!")
+                }, 800);
                 
-            }
+            };
+            
 
             // If it's a match, remove the click event listener to lock the matched cards
             firstCard.removeEventListener("click", this);

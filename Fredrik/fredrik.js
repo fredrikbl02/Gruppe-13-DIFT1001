@@ -75,3 +75,4 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add an event listener for the "Reset" button or other game functionality
   document.getElementById("resetButton").addEventListener("click", resetTimer);
 });
+
