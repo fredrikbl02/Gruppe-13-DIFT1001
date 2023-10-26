@@ -50,39 +50,45 @@ document.addEventListener("DOMContentLoaded", function () {
     
     let firstCard = null;
     let secondCard = null;
+    let isFlipping = false; // To prevent clicking more cards while comparison is in progress
     
     for (const kortside of kort) {
       kortside.addEventListener("click", function () {
-        if (!firstCard) {
-          // If firstCard is null, this is the first card being clicked
-          firstCard = kortside.dataset.framework;
-        } else if (!secondCard) {
-          // If firstCard is assigned, but secondCard is still null, this is the second card being clicked
-          secondCard = kortside.dataset.framework;
+        if (!isFlipping && !firstCard) {
+          // If no cards are flipping and firstCard is null, this is the first card being clicked
+          firstCard = kortside;
+          kortside.classList.add('flipped'); // Add a class to show the card's face
+        } else if (!isFlipping && !secondCard) {
+          // If no cards are flipping and firstCard is assigned, but secondCard is still null, this is the second card being clicked
+          secondCard = kortside;
+          kortside.classList.add('flipped'); // Add a class to show the card's face
     
           // Now, you can compare their data-framework values
-          if (firstCard === secondCard) {
+          if (firstCard.dataset.framework === secondCard.dataset.framework) {
             console.log("Match!");
+            // If it's a match, remove the click event listener to lock the matched cards
+            firstCard.removeEventListener("click", this);
+            secondCard.removeEventListener("click", this);
+            firstCard = null;
+            secondCard = null;
           } else {
             console.log("No match!");
+            isFlipping = true;
+            // If it's not a match, flip the cards back after a delay
             setTimeout(() => {
-              console.log(firstCard);
-              console.log(secondCard);
-            
+              firstCard.classList.remove('flipped');
+              secondCard.classList.remove('flipped');
+              firstCard = null;
+              secondCard = null;
+              isFlipping = false;
             }, 1000);
-            
-          };
-    
-          // Reset the firstCard and secondCard for the next turn
-          setTimeout(() => {
-            firstCard = null;
-          secondCard = null;
-          }, 1100);
-          
-        };
+          }
+        }
       });
-    };
+    }
     
+    
+
     
     
     // denne funksjonen viser verdien til kortene
