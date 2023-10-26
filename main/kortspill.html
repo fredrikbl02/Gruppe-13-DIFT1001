@@ -161,7 +161,7 @@
         let button = document.getElementById("newGameButton");
 
         // Timer for tideler og sekunder
-        setInterval(() => {
+        timer = setInterval(() => {
           tideler++; // Tideler legges til (inkrement)
           if (tideler === 10) { // Når tideler når 10 resettes tideler til 0 og sekunder inkremeres (øker med 1)
             tideler = 0;
