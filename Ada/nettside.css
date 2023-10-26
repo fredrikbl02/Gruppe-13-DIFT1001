@@ -1,8 +1,7 @@
 body{ 
     background-color: whitesmoke; 
-    text-align: center;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
+   
 }
 
 #hovedoverskrift {
@@ -40,30 +39,25 @@ body{
     font-size: 100px;
 }
 
-#sidetre {
-    font-size: 100px;
+.innhold {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
-
-#sidefire {
-    font-size: 100px;
-}
-
-#sidefem{
-    font-size: 100px;
-}
-
 
 #overskrift1 {
     color:cornflowerblue;
+    text-align: center;
 
 }
 
-#info {
-    padding-left: 10%;
-    padding-right: 10%;
 
+#linkoverskrift {
+    text-align: center;
 
 }
+
 
 #bunntekst {
     text-align: center;
