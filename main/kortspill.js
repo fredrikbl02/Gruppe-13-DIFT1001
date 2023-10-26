@@ -35,6 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
           // Now, you can compare their data-framework values
           if (firstCard.dataset.framework === secondCard.dataset.framework) {
             console.log("Match!");
+            //teller opp antall matcher
+            for (i = 0; i > 0; i++) {
+                
+            }
+
             // If it's a match, remove the click event listener to lock the matched cards
             firstCard.removeEventListener("click", this);
             secondCard.removeEventListener("click", this);
@@ -82,6 +87,14 @@ document.addEventListener("DOMContentLoaded", function () {
           kort.style.order = randomPos;
       });
     }
+
+
+
+
+
+
+
+
 
     });
 
