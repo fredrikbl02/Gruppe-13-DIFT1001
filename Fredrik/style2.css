@@ -8,53 +8,105 @@ body {
   background-clip: content-box;
 }
 
-/* Define a perspective for 3D effects on the container */
+
+#timer {
+position: absolute;
+top: 45%;
+left: 15%;
+transform: translate(-50%, -50%);
+color: black;
+font-size: 16px;
+
+}
+
+
+#bilde {
+  position: absolute;
+  top: 1%;
+  right: 50%;
+  border: 2px solid #ffffff;
+  padding: 1px; 
+  border-radius: 20px;
+  width: 200px;
+
+
+}
+
+
+#startTimer {
+position: absolute;
+top: 40%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: white;
+color: black;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+}
+
 .kort_spill {
-  perspective: 1000px;
-  width: 640px;
-  height: 640px;
+  width: 940px;
+  height: 940px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
 }
 
-/* Style the card element */
 .kort {
   width: 20%;
   height: 28%;
-  margin: 5px;
+  margin: 10px;
   position: relative;
   transform-style: preserve-3d;
-  transform: rotateY(0deg);
-  transition: transform 0.7s;
+  transition: 0.5s;
 }
 
-/* Define styles for the front and back sides of the card */
 .foran, .bak {
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 10px;
   position: absolute;
-  backface-visibility: visible;
+  backface-visibility: hidden;
 }
 
-/* Apply the warp effect when the card is flipped */
+.kort .foran {
+transform: rotateY(180deg);
+}
+
+.kort .bak {
+transform: rotateY(0deg);
+transition: opacity 0.25s 0.25s;
+}
+
+.kort.flipped .bak{
+  opacity: 0;
+}
+
+.bak {
+opacity: 1;
+transform: rotateY(180deg);
+}
+
 .kort.flipped {
-  transform: rotateY(180deg);
+opacity: 1;
+transform: rotateY(180deg);
 }
 
-/* Show the front side when the card is flipped */
-.kort.flipped .foran {
-  display: block;
+#time {
+  font-size: 50px;
+
+  color: #fdfcfc;
+  background: 
+  linear-gradient(135deg, #de6f06, #ff77dd, #9760e6, #7990e6),
+  linear-gradient(45deg, #61ffae, #ddff77, #e66097, #e67990);
+  border: 2px solid #ffffff;
+  padding: 1px; 
+  border-radius: 20px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 8px 3px 5px #888;
+  text-decoration-style: double;
+
 }
-
-/* Hide the back side when the card is flipped */
-.kort.flipped .bak {
-  display: none;
-}
-
-
-
-
-
-
