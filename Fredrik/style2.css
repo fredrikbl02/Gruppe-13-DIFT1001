@@ -1,5 +1,11 @@
 body {
-  background-color: lightgrey;
+  background: 
+    linear-gradient(135deg, #ffae61, #ff77dd, #9760e6, #7990e6),
+    linear-gradient(45deg, #61ffae, #ddff77, #e66097, #e67990);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-clip: content-box;
 }
 
 /* Define a perspective for 3D effects on the container */
