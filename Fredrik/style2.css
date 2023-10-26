@@ -34,17 +34,26 @@ body {
 }
 
 .bak {
-opacity: 1;
+opacity: 0;
+}
+
+/* Initially hide the back side of the card */
+.kort .bak   {
+  opacity: 0;
+
+}
+
+/* When the card is flipped, hide the front side and show the back side */
+.kort.flipped .foran {
+  opacity: 0;
+  display: block;
 }
 
 .kort.flipped .bak {
-  display: block; /* Ensure .bak is visible when .kort is flipped */
+  opacity: 1;
+  display: block
+  
 }
-
-.kort:not(.matched).flipped .foran {
-  display: none; /* Hide .foran for non-matched, flipped cards */
-}
-
 
 
 
