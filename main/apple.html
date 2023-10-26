@@ -9,17 +9,17 @@
     
 
 
-        <!--Link til JQuery biblioteket (skal brukes til å fade spillet på nettsiden)-->
+<!--Link til JQuery biblioteket (skal brukes til å fade spillet på nettsiden)-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        <!-- Linker til bootstrap biblioteket (brukes til navigasjonsmeny)-->
+<!-- Linker til bootstrap biblioteket (brukes til navigasjonsmeny)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-        <!-- Link til CSS dokument -->
+<!-- Link til CSS dokument -->
     <link rel="stylesheet" type="text/css" href="nettside.css">
 
-        <!-- Link til JS -->
+<!-- Link til JS -->
     <script src="nettside.js"></script>
 
 </head>
@@ -28,15 +28,15 @@
 
 <body>
 
-        <!-- Hovedoverskriften (overskriften bør endres!! 
-        Farger kan også endres til å evt passe best mulig til spillet) -->
+    <div id="hovedoverskrift" class="text-center container mt-3">
+
+        <header class="display-4"><a href="index.html" class="hovedoverskriften">Spillprosjekt</a></header>
+    
+    </div>
 
 
 
-
-        <!-- Navigasjonsmeny (Bootstrap brukes her). Her kan vi f.eks legge inn et spill pr side i menyen, fjerne noen sider, 
-        og endre navn på startsiden? Husk å legge inn linker til sidene!! Skulle vi lagt inn noe rapporter og sånn på noen 
-        av de andre sidene?? Bør de andre sidene i oppgaven også ha nav.bar for å enkelt kunne bla mellom de?-->
+<!-- Navigasjonsmeny (Bootstrap brukes her).-->
     <nav class="navbar navbar-expand-sm navbar-light bg-grey">
         <div class="container-fluid">
            <a class="navbar-brand" href="index.html"></a>
@@ -45,16 +45,13 @@
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="navbar-nav mx-auto justify-content-between">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Startside</a>
+                            <a class="nav-link" href="index.html"><b>HJEM</b></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="kortspill.html">Kortflipp</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="apple.html">Shoot the apple off the head</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="spill3.html">Spill 3</a>
+                            <a class="nav-link" href="apple.html">Shoot The Apple Off The Head</a>
                         </li>
                     </ul>
                 </div>
@@ -64,54 +61,33 @@
     </nav>
 
   
-<div class="innhold">
-        <!-- Overskrift og informasjon (NAVN PÅ SPILL LEGGES INN SENERE! SAMT INFORMASJON OM SPILLET. 
-        KANSKJE HVORDAN MAN SPILLER DET?) -->
+    <div class="innhold">
+       
 
         <h1 id ="overskrift1">Shoot the apple off the head</h1>
 
     <br>
     <br>
 
-<!--Her kommer link til spillet. Den ordentlige linken må legges til senere. Og bildet kan byttes ut til mer passende, eller noe fra selve spillet-->
-        
+    
+
         <div class = "container">
             <div class="row">
                 <div class="col-md-6 offset-md-3 text-center">
 
-                    
+                        <a href="apple.html">
                         <img id="applebilde" class="img-fluid" src="apple_158989157.jpg" alt="eplespill">
-                    
+                        </a>
 
                 </div>
             </div>
         </div>
-    <br>
-   
-<br>
-<br>     
-        <p id ="info">
-            
-            <b>Litt om spillet:</b><br>
-            Spillet vi har laget er et spill der du skal skyte med pil og bue, med mål om å treffe et eple som er plassert oppå hodet til en person.
-            
-            <br>
-            
-            
-            <br>
-            <br>
-            <br>
-            <b>Regler:</b><br>
-            Du starter med å stå en gitt avstand fra personen, og for hver runde som går øker denne avstanden.
-            
-            Spillet har 20 nivåer/avstander, og det er om å gjøre å få så mange poeng som mulig. 
-            Hver gang du treffer eplet får du poeng. Hvor mange poeng du får avhenger av hvor nøyaktig du treffer.
-            Dersom du ikke treffer eplet har du tapt spillet, og du får mulighet til å prøve på nytt.<br>
-            
-
-        </p>
     
     <br>
+    <br>
+    <br>     
+    <br>
+
     </div>
 
 
