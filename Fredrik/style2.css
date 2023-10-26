@@ -29,28 +29,22 @@ body {
   position: absolute;
 }
 
-.kort.flipped .bak{
-  opacity: 0;
-}
 
-.bak {
-opacity: 0;
-}
 
 /* Initially hide the back side of the card */
 .kort .bak   {
-  opacity: 0;
+  opacity: 1;
 
 }
 
 /* When the card is flipped, hide the front side and show the back side */
 .kort.flipped .foran {
-  opacity: 0;
+  opacity: 1;
   display: block;
 }
 
 .kort.flipped .bak {
-  opacity: 1;
+  opacity: 0;
   display: block
   
 }
