@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kortspill - Erik</title>
+    <title>kortspill</title>
 
       <!--Link til JQuery biblioteket-->
 
@@ -15,7 +15,7 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
       <script src="json.js"></script>
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="kortspill.css">
 
 
 </head>
@@ -26,14 +26,14 @@
         <h1 class="display-4">Overskrift kommer her</h1></div>
 
        
-        <div><h4>Tid:</h4></div><div id="time">0:00.0</div>
-            
+        <div><h4>Tid:</h4></div><div id="time">0:00:0</div>
+    
     
     <!-- Navigasjonsmeny (Bootstrap)-->
     
     <nav class="navbar navbar-expand-sm navbar-light bg-pink">
         <div class="container-fluid">
-        <a class="navbar-brand" href="nettside.html">Startside</a>
+        <a class="navbar-brand" href="index.html">Startside</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span class="navbar-toggler-icon"></span></button>
               
             <div class="collapse navbar-collapse" id="mynavbar">
@@ -54,17 +54,16 @@
             </div>
         </div>
     </nav>
+
+    <div id="leaderboard">
+        <h3>Leaderboard</h3>
+        <ol id="highscore" type="1">
+        </ol>
+    </div>
       
-<button id="newGameButton" onclick="StartButton()">Start game!</button>
+    <!-- <button id="newGameButton" onclick="StartButton()">Start game!</button> -->
 
-<div id="leaderboard">
-    <h3>Leaderboard</h3>
-    <ol id="highscore" type="1">
-    </ol>
-</div>
-
-
-<section class="kort_spill">
+<section class="kort_spill" id="section" onclick="handleSectionClick(this)">
 <div class="kort" data-framework="1">
     <img class="foran" src="Kort/kort_1.png">
     <img class="bak" src="Kort/Kort_bak.gif">
@@ -145,6 +144,74 @@
     <img class="bak" src="Kort/Kort_bak.gif">
 </div>
 </section>
+
+
+<script>
+    const section = document.getElementById("section");
+    let functionCalled = false; // Flag to track if the function has been called
+
+    section.addEventListener("click", function () {
+      if (!functionCalled) {
+        // Your function or code goes here
+
+        let time = document.getElementById("time");
+        let seconds = 0;
+        let tideler = 0;
+        time.innerText = formatTime(seconds, tideler);
+        let button = document.getElementById("newGameButton");
+        let highScoresList = document.getElementById("highscore");
+
+        // Timer for tideler og sekunder
+        timer = setInterval(() => {
+          tideler++; // Tideler legges til (inkrement)
+          if (tideler === 10) { // Når tideler når 10 resettes tideler til 0 og sekunder inkremeres (øker med 1)
+            tideler = 0;
+            seconds++;
+          }
+          time.innerText = formatTime(seconds, tideler);
+        }, 100); // legges til hvert tidel av et sekund
+
+        // Denne funksjonen gjør at dersom sekunder overstiger 60 blir det omgjort til minutter
+        function formatTime(seconds, tideler) {
+          let minutes = Math.floor(seconds / 60); // Beregner antall minutter ved å ta heltall sekunder / 60
+          let remainingSeconds = seconds % 60; // Beregner antall sekunder det er igjen ved hjelp av modulus
+          let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
+          let timer = minutes + ":" + formattedSeconds + ":" + tideler;
+          return timer;
+        }
+
+         function stopTimer(){
+        clearInterval(timer);
+
+        highscores.push(formatTime(seconds, tideler));
+        highscores.sort();
+
+        if (highscores.length > 5) {
+          highscores = highscores.slice(0, 5); // Keep only the top 5
+      }
+
+        displayHighscores();
+      }
+
+      function displayHighscores() {
+         highscores.forEach((score) => {
+            let listItem = document.createElement("li");
+            listItem.innerText = score;
+            highScoresList.appendChild(listItem);
+        }
+    )}
+        console.log("Function has been called");
+        functionCalled = true;
+
+        // Set the flag to true to prevent the function from being called again
+        functionCalled = true;
+      }
+    });
+
+    // Your other JavaScript code can go here
+
+  </script>
+
 
 </body>
 
