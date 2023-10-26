@@ -34,15 +34,29 @@ $(document).ready(function(){
     });
     
 
-$(document).ready(function(){
-    $("#kortbilde").css("opacity", 0.65);
-        $("#kortbilde").mouseenter(function() {
 
-            $(this).animate({opacity: 1});
-        });
-            $("#kortbilde").mouseleave(function(){
-            $(this).animate({opacity: 0.65});
-        });
+    $(document).ready(function(){
+        $("#kortbilde").css("opacity", 0.65);
+            $("#kortbilde").mouseenter(function() {
     
+                $(this).animate({opacity: 1});
+            });
+                $("#kortbilde").mouseleave(function(){
+                $(this).animate({opacity: 0.65});
+            });
+        
+        });
     });
-});
+
+    $(document).ready(function(){
+        $("#applebilde").css("opacity", 0.65);
+            $("#applebilde").mouseenter(function() {
+    
+                $(this).animate({opacity: 1});
+            });
+                $("#applebilde").mouseleave(function(){
+                $(this).animate({opacity: 0.65});
+            });
+        
+        });
+

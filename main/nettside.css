@@ -15,12 +15,16 @@ body{
     color: cornflowerblue;
 }
 
+
+
+.navbar-toggler {
+background-color:cornflowerblue;
+
+}
 .navbar {
     background-color: lightgrey;
-    
+    padding: 0,5%;
 }
-
-
 
 
 .nav-item {
