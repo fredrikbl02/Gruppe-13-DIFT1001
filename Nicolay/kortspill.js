@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
     
     for (const kortside of kort) {
       kortside.addEventListener("click", function () {
-        if (!isFlipping && !firstCard) {
+        if (!isFlipping && !firstCard && !kortside.classList.contains('matched')) {
           // If no cards are flipping and firstCard is null, this is the first card being clicked
           firstCard = kortside;
           kortside.classList.add('flipped'); // Add a class to show the card's face
-        } else if (!isFlipping && firstCard !== kortside && !secondCard) {
+        } else if (!isFlipping && firstCard !== kortside && !secondCard && !kortside.classList.contains('matched')) {
           // If no cards are flipping and firstCard is assigned, but secondCard is still null, this is the second card being clicked
           secondCard = kortside;
           kortside.classList.add('flipped'); // Add a class to show the card's face
@@ -36,8 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
           if (firstCard.dataset.framework === secondCard.dataset.framework && firstCard !== secondCard) {
             console.log("Match!");
             // If it's a match, remove the click event listener to lock the matched cards
-            firstCard.removeEventListener("click", this);
-            secondCard.removeEventListener("click", this);
+
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
             firstCard = null;
             secondCard = null;
           } else {

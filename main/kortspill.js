@@ -20,10 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let firstCard = null;
     let secondCard = null;
     let isFlipping = false; // To prevent clicking more cards while comparison is in progress
+    let count = 0; 
     
     for (const kortside of kort) {
       kortside.addEventListener("click", function () {
-        if (!isFlipping && !firstCard) {
+        if (!isFlipping && !firstCard && !kortside.classList.contains('matched')) {
           // If no cards are flipping and firstCard is null, this is the first card being clicked
           firstCard = kortside;
           kortside.classList.add('flipped'); // Add a class to show the card's face
@@ -33,16 +34,25 @@ document.addEventListener("DOMContentLoaded", function () {
           kortside.classList.add('flipped'); // Add a class to show the card's face
     
           // Now, you can compare their data-framework values
-          if (firstCard.dataset.framework === secondCard.dataset.framework && firstCard !== secondCard) {
+          if (firstCard.dataset.framework === secondCard.dataset.framework && firstCard !== secondCard && !kortside.classList.contains('matched')) {
             console.log("Match!");
             //teller opp antall matcher
-            for (i = 0; i > 0; i++) {
+        
+            if (count < 8) {
+                count++;
+            };
+
+            if (count === 8) {
+                setTimeout(() => {
+                    alert("you won!")
+                }, 800);
                 
-            }
+            };
+            
 
             // If it's a match, remove the click event listener to lock the matched cards
-            firstCard.removeEventListener("click", this);
-            secondCard.removeEventListener("click", this);
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
             firstCard = null;
             secondCard = null;
           } else {
