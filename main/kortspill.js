@@ -43,11 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
             if (count === 8) {
-                clearInterval(timer)
+                clearInterval(timer);
                 setTimeout(() => {
-                    alert("you won!")
+                    alert("you won!");
                 }, 800);
-                
+                displayHighscores();
             };
             
 
@@ -99,15 +99,40 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
+    let seconds = document.getElementById("seconds");
+    let tideler = document.getElementById("tideler");
 
+    function formatTime(seconds, tideler) {
+      let minutes = Math.floor(seconds / 60); // Beregner antall minutter ved å ta heltall sekunder / 60
+      let remainingSeconds = seconds % 60; // Beregner antall sekunder det er igjen ved hjelp av modulus
+      let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
+      let timer = minutes + ":" + formattedSeconds + ":" + tideler;
+      return timer;
+    }
 
+    function displayHighscores() {
+      console.log("suksess");
+      let tid = formatTime(seconds, tideler);
+      let highscores = [];
 
+          highscores.push(tid);
+          highscores.sort();
+          highscores = highscores.slice(0, 4); // Keep only the top 5
+  
+          let highScoresList = document.getElementById("highscore");
+  
+          highscores.forEach((tid) => {
+              let listItem = document.createElement("li");
+              listItem.innerText = tid;
+              highScoresList.appendChild(listItem);
+    
+              
+          });
+      }
+  }
 
-
-
-
-
-    });
+    );
+    
 
     
       
