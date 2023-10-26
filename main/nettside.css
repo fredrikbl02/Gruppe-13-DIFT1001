@@ -28,6 +28,10 @@ body{
     color: cornflowerblue;
 }
 
+p.solid {
+    border-style: solid;
+}
+
 
 /* Hamburgermenyen som dukker opp når vinduet blir for lite */
 .navbar-toggler {
