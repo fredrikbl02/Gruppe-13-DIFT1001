@@ -5,38 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const kort = document.getElementsByClassName("kort"); //henter ut alt med class "kort";
 
 
-    const element = document.getElementById("startTimer");
-
-    element.addEventListener("click", startTimer);
-
-    function startTimer() {
-
-        let time = document.getElementById("timer");
-        let seconds = 0;
-        let tideler = 0;
-        time.innerText = formatTime(seconds, tideler);
-    
-        //Timer for tideler og sekunder
-        setInterval(() => {
-          tideler++; //Tideler legges til (inkrement)
-          if(tideler===10){ //Når tideler når 10 resettes tideler til 0 og sekunder inkremeres (øker med 1)
-          tideler = 0;
-          seconds++;
-          }
-          time.innerText = formatTime(seconds, tideler);
-    
-        }, 100); // legges til hvert tidel av et sekund
-    
-        //Denne funksjonen gjør at dersom sekunder overstiger 60 blir det omgjort til minutter
-        function formatTime(seconds, tideler){
-          let minutes = Math.floor(seconds/60); //Beregner antall minutter ved å ta heltall sekunder / 60, dvs -->
-          //80 sekunder blir fortsatt 60=1 minutt fordi det er nærmeste hele tall
-          let remainingSeconds = seconds % 60; //Beregner antall sekunder det er igjen ved hjelp av modulus
-          //F.eks. 200%60 blir 20 fordi 60*3= 180, 20 i rest. Dette betyr 3 minutter og 20 sekunder
-          let timer = minutes + " " + "minutt" + " " + remainingSeconds + " " + "sekunder" + " " + tideler + " " + "tideler"; //Skriver ut
-          return timer; //Skriver ut
-        }
-      }
+   
     
     
     
@@ -50,39 +19,45 @@ document.addEventListener("DOMContentLoaded", function () {
     
     let firstCard = null;
     let secondCard = null;
+    let isFlipping = false; // To prevent clicking more cards while comparison is in progress
     
     for (const kortside of kort) {
       kortside.addEventListener("click", function () {
-        if (!firstCard) {
-          // If firstCard is null, this is the first card being clicked
-          firstCard = kortside.dataset.framework;
-        } else if (!secondCard) {
-          // If firstCard is assigned, but secondCard is still null, this is the second card being clicked
-          secondCard = kortside.dataset.framework;
+        if (!isFlipping && !firstCard) {
+          // If no cards are flipping and firstCard is null, this is the first card being clicked
+          firstCard = kortside;
+          kortside.classList.add('flipped'); // Add a class to show the card's face
+        } else if (!isFlipping && !secondCard) {
+          // If no cards are flipping and firstCard is assigned, but secondCard is still null, this is the second card being clicked
+          secondCard = kortside;
+          kortside.classList.add('flipped'); // Add a class to show the card's face
     
           // Now, you can compare their data-framework values
-          if (firstCard === secondCard) {
+          if (firstCard.dataset.framework === secondCard.dataset.framework) {
             console.log("Match!");
+            // If it's a match, remove the click event listener to lock the matched cards
+            firstCard.removeEventListener("click", this);
+            secondCard.removeEventListener("click", this);
+            firstCard = null;
+            secondCard = null;
           } else {
             console.log("No match!");
+            isFlipping = true;
+            // If it's not a match, flip the cards back after a delay
             setTimeout(() => {
-              console.log(firstCard);
-              console.log(secondCard);
-            
-            }, 1000);
-            
-          };
-    
-          // Reset the firstCard and secondCard for the next turn
-          setTimeout(() => {
-            firstCard = null;
-          secondCard = null;
-          }, 1100);
-          
-        };
+              firstCard.classList.remove('flipped');
+              secondCard.classList.remove('flipped');
+              firstCard = null;
+              secondCard = null;
+              isFlipping = false;
+            }, 700);
+          }
+        }
       });
-    };
+    }
     
+    
+
     
     
     // denne funksjonen viser verdien til kortene
@@ -111,3 +86,51 @@ document.addEventListener("DOMContentLoaded", function () {
   
  
     });
+
+    function StartButton() {
+
+      let time = document.getElementById("time");
+      let seconds = 0;
+      let tideler = 0;
+      time.innerText = formatTime(seconds, tideler);
+      let button = document.getElementById("newGameButton");
+
+
+
+
+      //Timer for tideler og sekunder
+      setInterval(() => {
+        tideler++; //Tideler legges til (inkrement)
+        if(tideler===10){ //Når tideler når 10 resettes tideler til 0 og sekunder inkremeres (øker med 1)
+        tideler = 0;
+        seconds++;
+        }
+        time.innerText = formatTime(seconds, tideler);
+
+      }, 100); // legges til hvert tidel av et sekund
+
+      
+
+      //Denne funksjonen gjør at dersom sekunder overstiger 60 blir det omgjort til minutter
+      function formatTime(seconds, tideler){
+        let minutes = Math.floor(seconds/60); //Beregner antall minutter ved å ta heltall sekunder / 60, dvs -->
+        //80 sekunder blir fortsatt 60=1 minutt fordi det er nærmeste hele tall
+        let remainingSeconds = seconds % 60; //Beregner antall sekunder det er igjen ved hjelp av modulus
+        let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
+        //F.eks. 200%60 blir 20 fordi 60*3= 180, 20 i rest. Dette betyr 3 minutter og 20 sekunder
+        let timer = minutes + ":" + formattedSeconds + ":" + tideler; //Skriver ut
+        return timer; //Skriver ut
+      }
+
+
+
+      //Denne brukes for å stoppe timeren, dette vet vi ikke ennå
+    //   setTimeout(() => { 
+    //   location.reload(); //Brukes for å starte siten på nytt, trenger kanskje ikke denne senere.
+    //  }, 15000); //15000 her er ms til timeren stopper, vi trenger -->
+    // noe å kalle på når timeren skal stoppe, ikke laget ennå.
+
+    
+    button.style.display = "none";
+ 
+    }

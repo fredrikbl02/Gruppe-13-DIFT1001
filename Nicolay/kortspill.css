@@ -39,7 +39,8 @@ body {
     height: 28%;
     margin: 5px;
     position: relative;
-   
+    transform-style: preserve-3d;
+    transition: 0.5s;
 }
 
 .foran, .bak {
@@ -47,6 +48,16 @@ body {
     height: 100%;
     padding: 20px;
     position: absolute;
+    backface-visibility: hidden;
+}
+
+.kort .foran {
+  transform: rotateY(180deg);
+}
+
+.kort .bak {
+  transform: rotateY(0deg);
+  transition: opacity 0.25s 0.25s;
 }
 
 .kort.flipped .bak{
@@ -55,6 +66,12 @@ body {
 
 .bak {
  opacity: 1;
+ transform: rotateY(180deg);
+}
+
+.kort.flipped {
+  opacity: 1;
+  transform: rotateY(180deg);
 }
 
 #time {
