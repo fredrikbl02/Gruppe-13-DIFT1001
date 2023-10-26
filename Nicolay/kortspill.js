@@ -27,13 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
           // If no cards are flipping and firstCard is null, this is the first card being clicked
           firstCard = kortside;
           kortside.classList.add('flipped'); // Add a class to show the card's face
-        } else if (!isFlipping && !secondCard) {
+        } else if (!isFlipping && firstCard !== kortside && !secondCard) {
           // If no cards are flipping and firstCard is assigned, but secondCard is still null, this is the second card being clicked
           secondCard = kortside;
           kortside.classList.add('flipped'); // Add a class to show the card's face
     
           // Now, you can compare their data-framework values
-          if (firstCard.dataset.framework === secondCard.dataset.framework) {
+          if (firstCard.dataset.framework === secondCard.dataset.framework && firstCard !== secondCard) {
             console.log("Match!");
             // If it's a match, remove the click event listener to lock the matched cards
             firstCard.removeEventListener("click", this);
