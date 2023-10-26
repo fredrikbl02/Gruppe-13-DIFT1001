@@ -127,11 +127,9 @@ document.addEventListener("DOMContentLoaded", function () {
         highscores.push(time);
         highscores.sort();
 
-        
         if (highscores.length > 5) {
           highscores = highscores.slice(0, 5); // Keep only the top 5
       }
-       
 
         displayHighscores();
 
@@ -140,23 +138,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       setTimeout(() => {
         stopTimer();
-      }, 2000);
-
-      
+      }, 1000);
 
       function displayHighscores() {
-        let highScoresList = document.getElementById("highscore");
-    
-        highscores.forEach((score) => {
-            let listItem = document.createElement("li");
-            listItem.innerText = score;
-            highScoresList.appendChild(listItem);
-
-            
-        });
-
+        for (let i = 0; i < highscores.length; i++) {
+            let listItem = document.getElementById("highscoreItem" + (i + 1));
+            listItem.innerText = highscores[i];
+        }
     }
-    
 
 
        displayHighscores();

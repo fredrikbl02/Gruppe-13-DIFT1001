@@ -1,4 +1,3 @@
-import fs from fs;
 
 document.addEventListener("DOMContentLoaded", function () {
   
@@ -110,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 
-fs.writeFile("Erik/scoreboard.json", (highscores) => {
 
  function StartButton() {
 
@@ -158,7 +156,6 @@ fs.writeFile("Erik/scoreboard.json", (highscores) => {
       highscores.push(time);
       highscores.sort();
 
-      fs.writeFile
 
       
       if (highscores.length > 5) {
@@ -199,4 +196,3 @@ fs.writeFile("Erik/scoreboard.json", (highscores) => {
   }
 
   
-})
