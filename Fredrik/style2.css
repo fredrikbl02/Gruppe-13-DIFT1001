@@ -2,11 +2,9 @@ body {
   background-color: lightgrey;
 }
 
-#StartButton {
-
-}
-
+/* Define a perspective for 3D effects on the container */
 .kort_spill {
+  perspective: 1000px;
   width: 640px;
   height: 640px;
   margin: auto;
@@ -14,36 +12,41 @@ body {
   flex-wrap: wrap;
 }
 
+/* Style the card element */
 .kort {
   width: 20%;
   height: 28%;
   margin: 5px;
   position: relative;
- 
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform 0.7s;
 }
 
+/* Define styles for the front and back sides of the card */
 .foran, .bak {
   width: 100%;
   height: 100%;
   padding: 20px;
   position: absolute;
+  backface-visibility: visible;
 }
 
-.kort.flipped .bak{
-  opacity: 0;
+/* Apply the warp effect when the card is flipped */
+.kort.flipped {
+  transform: rotateY(180deg);
 }
 
-.bak {
-opacity: 1;
+/* Show the front side when the card is flipped */
+.kort.flipped .foran {
+  display: block;
 }
 
+/* Hide the back side when the card is flipped */
 .kort.flipped .bak {
-  display: block; /* Ensure .bak is visible when .kort is flipped */
+  display: none;
 }
 
-.kort:not(.matched).flipped .foran {
-  display: none; /* Hide .foran for non-matched, flipped cards */
-}
 
 
 
