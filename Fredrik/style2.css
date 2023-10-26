@@ -1,45 +1,51 @@
 body {
-    background-color: lightgrey;
-  }
-  
+  background-color: lightgrey;
+}
+
 #StartButton {
 
 }
 
 .kort_spill {
-    width: 640px;
-    height: 640px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
+  width: 640px;
+  height: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .kort {
-    width: 25%;
-    height: 33.333%;
-    margin: 5px;
-    position: relative;
+  width: 20%;
+  height: 28%;
+  margin: 5px;
+  position: relative;
+ 
 }
 
 .foran, .bak {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
 }
 
 .kort.flipped .bak{
-    display: none;
+  opacity: 0;
 }
 
-.kort.matched .foran {
-  display: block;
+.bak {
+opacity: 1;
 }
 
-.kort.flipped .foran {
-  display: none;
+.kort.flipped .bak {
+  display: block; /* Ensure .bak is visible when .kort is flipped */
 }
 
-.kort.flipped:not(.matched) .foran {
-  display: none;
+.kort:not(.matched).flipped .foran {
+  display: none; /* Hide .foran for non-matched, flipped cards */
 }
+
+
+
+
+
