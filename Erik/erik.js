@@ -1,4 +1,5 @@
 
+
 document.addEventListener("DOMContentLoaded", function () {
   
     const bak = document.getElementsByClassName("bak"); //henter ut alt med class "bak" og lagrer det i en variabel
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       };
     
     // dette er funksjon for å matche kort med hverandre
-    
+  
     let firstCard = null;
     let secondCard = null;
     
@@ -88,13 +89,15 @@ document.addEventListener("DOMContentLoaded", function () {
       let seconds = 0;
       let tideler = 0;
       time.innerText = formatTime(seconds, tideler);
-      let button = document.getElementById("newGameButton");
+      let highscores = [];
+
+      
 
 
 
 
       //Timer for tideler og sekunder
-      setInterval(() => {
+     let interval = setInterval(() => {
         tideler++; //Tideler legges til (inkrement)
         if(tideler===10){ //Når tideler når 10 resettes tideler til 0 og sekunder inkremeres (øker med 1)
         tideler = 0;
@@ -113,21 +116,40 @@ document.addEventListener("DOMContentLoaded", function () {
         let remainingSeconds = seconds % 60; //Beregner antall sekunder det er igjen ved hjelp av modulus
         let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
         //F.eks. 200%60 blir 20 fordi 60*3= 180, 20 i rest. Dette betyr 3 minutter og 20 sekunder
-        let timer = minutes + ":" + formattedSeconds + ":" + tideler; //Skriver ut
+        let timer = minutes + ":" + formattedSeconds + "." + tideler; //Skriver ut
         return timer; //Skriver ut
       }
 
+      function stopTimer(){
+        clearInterval(interval);
+
+        let time = formatTime(seconds, tideler);
+        highscores.push(time);
+        highscores.sort();
+
+        if (highscores.length > 5) {
+          highscores = highscores.slice(0, 5); // Keep only the top 5
+      }
+
+        displayHighscores();
+
+        alert('Tiden din ble ' + time);
+      }
+
+      setTimeout(() => {
+        stopTimer();
+      }, 1000);
+
+      function displayHighscores() {
+        for (let i = 0; i < highscores.length; i++) {
+            let listItem = document.getElementById("highscoreItem" + (i + 1));
+            listItem.innerText = highscores[i];
+        }
+    }
 
 
-      //Denne brukes for å stoppe timeren, dette vet vi ikke ennå
-    //   setTimeout(() => { 
-    //   location.reload(); //Brukes for å starte siten på nytt, trenger kanskje ikke denne senere.
-    //  }, 15000); //15000 her er ms til timeren stopper, vi trenger -->
-    // noe å kalle på når timeren skal stoppe, ikke laget ennå.
+       displayHighscores();
 
-    
-    button.style.display = "none";
- 
     }
     
     
