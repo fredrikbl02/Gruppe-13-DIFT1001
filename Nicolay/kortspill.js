@@ -36,8 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (firstCard.dataset.framework === secondCard.dataset.framework && firstCard !== secondCard) {
             console.log("Match!");
             // If it's a match, remove the click event listener to lock the matched cards
-            firstCard.removeEventListener("click", this);
-            secondCard.removeEventListener("click", this);
+
             firstCard.classList.add('matched');
             secondCard.classList.add('matched');
             firstCard = null;
