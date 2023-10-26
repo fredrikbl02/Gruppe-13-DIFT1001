@@ -58,6 +58,7 @@
     <div id="leaderboard">
         <h3>Leaderboard</h3>
         <ol id="highscore" type="1">
+            <li id="highscoreItem"></li>
         </ol>
     </div>
       
@@ -147,7 +148,7 @@
 
 
 <script>
-    const section = document.getElementById("section");
+const section = document.getElementById("section");
     let functionCalled = false; // Flag to track if the function has been called
 
     section.addEventListener("click", function () {
@@ -178,56 +179,13 @@
           let timer = minutes + ":" + formattedSeconds + ":" + tideler;
           return timer;
         }
-
-        function stopTimer(){
-        clearInterval(interval);
-
-        let time = formatTime(seconds, tideler);
-        highscores.push(time);
-        highscores.sort();
-
-        
-        if (highscores.length > 5) {
-          highscores = highscores.slice(0, 5); // Keep only the top 5
-      }
-       
-
-        displayHighscores();
-
-        alert('Tiden din ble ' + time);
-      }
-
-      setTimeout(() => {
-        stopTimer();
-      }, 2000);
-
-      
-
-      function displayHighscores() {
-        let highScoresList = document.getElementById("highscore");
     
-        highscores.forEach((score) => {
-            let listItem = document.createElement("li");
-            listItem.innerText = score;
-            highScoresList.appendChild(listItem);
-
-            
-        });
-
-    }
-    
-
-
-       displayHighscores();
-
-        
         console.log("Function has been called");
         functionCalled = true;
 
         // Set the flag to true to prevent the function from being called again
         functionCalled = true;
-      }
-    });
+        }});
 
     // Your other JavaScript code can go here
 
