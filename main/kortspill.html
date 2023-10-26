@@ -54,6 +54,12 @@
             </div>
         </div>
     </nav>
+
+    <div id="leaderboard">
+        <h3>Leaderboard</h3>
+        <ol id="highscore" type="1">
+        </ol>
+    </div>
       
     <!-- <button id="newGameButton" onclick="StartButton()">Start game!</button> -->
 
@@ -172,6 +178,47 @@
           let timer = minutes + ":" + formattedSeconds + ":" + tideler;
           return timer;
         }
+
+        function stopTimer(){
+        clearInterval(interval);
+
+        let time = formatTime(seconds, tideler);
+        highscores.push(time);
+        highscores.sort();
+
+        
+        if (highscores.length > 5) {
+          highscores = highscores.slice(0, 5); // Keep only the top 5
+      }
+       
+
+        displayHighscores();
+
+        alert('Tiden din ble ' + time);
+      }
+
+      setTimeout(() => {
+        stopTimer();
+      }, 2000);
+
+      
+
+      function displayHighscores() {
+        let highScoresList = document.getElementById("highscore");
+    
+        highscores.forEach((score) => {
+            let listItem = document.createElement("li");
+            listItem.innerText = score;
+            highScoresList.appendChild(listItem);
+
+            
+        });
+
+    }
+    
+
+
+       displayHighscores();
 
         
         console.log("Function has been called");
