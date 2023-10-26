@@ -14,8 +14,8 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-      <script src="script.js"></script>
-      <link rel="stylesheet" href="style.css">
+      <script src="kortspill.js"></script>
+      <link rel="stylesheet" href="kortspill.css">
 
 
 </head>
@@ -24,14 +24,16 @@
     <div id="hovedoverskrift" class="text-center container mt-3">
 
         <h1 class="display-4">Overskrift kommer her</h1></div>
-    
+
+       
+        <div><h4>Tid:</h4></div><div id="time">0:00:0</div>
     
     
     <!-- Navigasjonsmeny (Bootstrap)-->
     
     <nav class="navbar navbar-expand-sm navbar-light bg-pink">
         <div class="container-fluid">
-        <a class="navbar-brand" href="nettside.html">Startside</a>
+        <a class="navbar-brand" href="index.html">Startside</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span class="navbar-toggler-icon"></span></button>
               
             <div class="collapse navbar-collapse" id="mynavbar">
@@ -53,7 +55,7 @@
         </div>
     </nav>
       
-<button id="StartButton" onclick="StartButton()">Start game!</button>
+<button id="startTimer">Start timer</button>
 
 <section class="kort_spill">
 <div class="kort" data-framework="1">
