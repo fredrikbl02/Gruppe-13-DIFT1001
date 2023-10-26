@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
               firstCard = null;
               secondCard = null;
               isFlipping = false;
-            }, 1000);
+            }, 700);
           }
         }
       });
