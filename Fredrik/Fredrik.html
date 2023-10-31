@@ -23,41 +23,22 @@
 <body>
     <div id="hovedoverskrift" class="text-center container mt-3">
 
-        <h1 class="display-4">Overskrift kommer her</h1></div>
+    
+     
+     
+        <h1 class="display-4"></h1></div>
 
        
-        <div id="timer">Time: 0 seconds</div>
+        <div><h4>Tid:</h4></div><div id="time">0:00:0</div>
     
-    
+        <img class="bilde" id="bilde" src="Kort/kort_9.png">
     <!-- Navigasjonsmeny (Bootstrap)-->
     
-    <nav class="navbar navbar-expand-sm navbar-light bg-pink">
-        <div class="container-fluid">
-        <a class="navbar-brand" href="nettside.html">Startside</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span class="navbar-toggler-icon"></span></button>
-              
-            <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                    <a class="nav-link" href="André/index.html">Side 2</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="her kommer link">Side 3</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="her kommer link">Side 4</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="(her kommer link til neste side)">Side 5</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-      
-<button id="newGameButton" onclick="StartButton()">Start game!</button>
 
-<section class="kort_spill">
+      
+    <!-- <button id="newGameButton" onclick="StartButton()">Start game!</button> -->
+
+<section class="kort_spill" id="section" onclick="handleSectionClick(this)">
 <div class="kort" data-framework="1">
     <img class="foran" src="Kort/kort_1.png">
     <img class="bak" src="Kort/Kort_bak.gif">
@@ -139,7 +120,57 @@
 </div>
 </section>
 
+
+<script>
+    const section = document.getElementById("section");
+    let functionCalled = false; // Flag to track if the function has been called
+
+    section.addEventListener("click", function () {
+      if (!functionCalled) {
+        // Your function or code goes here
+
+        let time = document.getElementById("time");
+        let seconds = 0;
+        let tideler = 0;
+        time.innerText = formatTime(seconds, tideler);
+        let button = document.getElementById("newGameButton");
+
+        // Timer for tideler og sekunder
+        setInterval(() => {
+          tideler++; // Tideler legges til (inkrement)
+          if (tideler === 10) { // Når tideler når 10 resettes tideler til 0 og sekunder inkremeres (øker med 1)
+            tideler = 0;
+            seconds++;
+          }
+          time.innerText = formatTime(seconds, tideler);
+        }, 100); // legges til hvert tidel av et sekund
+
+        // Denne funksjonen gjør at dersom sekunder overstiger 60 blir det omgjort til minutter
+        function formatTime(seconds, tideler) {
+          let minutes = Math.floor(seconds / 60); // Beregner antall minutter ved å ta heltall sekunder / 60
+          let remainingSeconds = seconds % 60; // Beregner antall sekunder det er igjen ved hjelp av modulus
+          let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
+          let timer = minutes + ":" + formattedSeconds + ":" + tideler;
+          return timer;
+        }
+
+        
+        console.log("Function has been called");
+        functionCalled = true;
+
+        // Set the flag to true to prevent the function from being called again
+        functionCalled = true;
+      }
+    });
+
+    // Your other JavaScript code can go here
+
+  </script>
+
+
 </body>
 
 </html>
+
+
 
