@@ -38,16 +38,15 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Match!");
             //teller opp antall matcher
         
-            if (count < 8) {
+            if (count < 1) {
                 count++;
             };
 
-            if (count === 8) {
+            if (count === 1) {
                 clearInterval(timer);
                 setTimeout(() => {
-                    alert("you won!");
-                }, 800);
                 displayHighscores();
+              }, 800);
             };
             
 
@@ -66,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
               firstCard = null;
               secondCard = null;
               isFlipping = false;
-            }, 700);
+            }, 600);
           }
         }
       });
@@ -137,16 +136,19 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("suksess");
       let tid = formatTime(seconds, tideler);
       let highscores = [];
+      let navnArray = [];
+
+      let navn = prompt("Gratulerer! Skriv inn navnet ditt her: ");
 
           highscores.push(tid);
-          highscores.sort();
-          highscores = highscores.slice(0, 4); // Keep only the top 5
+          navnArray.push(navn);
+          highscores = highscores.slice(0, 5);
   
           let highScoresList = document.getElementById("highscore");
   
           highscores.forEach((tid) => {
               let listItem = document.createElement("li");
-              listItem.innerText = tid;
+              listItem.innerText = navn + ": " + tid;
               highScoresList.appendChild(listItem);
     
               

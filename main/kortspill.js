@@ -46,12 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
             if (count === 8) {
-                clearInterval(timer);
-                setTimeout(() => {
-                    console.log("You won!")
-                }, 1000);
-                displayHighscores();
-            };
+              clearInterval(timer);
+              setTimeout(() => {
+              displayHighscores();
+            }, 800);
+          };
 
             // If it's a match, remove the click event listener to lock the matched cards
             firstCard.classList.add('matched');
@@ -68,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
               firstCard = null;
               secondCard = null;
               isFlipping = false;
-            }, 700);
+            }, 600);
           }
         }
       });
@@ -137,41 +136,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // highscores
 
-    function displayHighscores() {
-      console.log("suksess");
-      let tid = formatTime(seconds, tideler);
-      let highscores = [];
+function displayHighscores() {
+  console.log("suksess");
+  let tid = formatTime(seconds, tideler);
+  let highscores = [];
+  let navnArray = [];
 
-          highscores.push(tid);
-          highscores.sort();
-          highscores = highscores.slice(0, 4); // Keep only the top 5
-  
-          let highScoresList = document.getElementById("highscore");
-  
-          highscores.forEach((tid) => {
-              let listItem = document.createElement("li");
-              listItem.innerText = tid;
-              highScoresList.appendChild(listItem);
-    
-              
-          });
-      }
+  let navn = prompt("Gratulerer! Skriv inn navnet ditt her: ");
 
-      function startOver () {
-        const cardWon = document.getElementsByClassName("bak") 
-              for (let i = 0; i < cardWon.length; i++) {
-                cardWon[i].style.opacity = 1;
-              }
-              shuffleCards();
-              bakEventListener();
-              console.log("new game");
-      };
+      highscores.push(tid);
+      navnArray.push(navn);
+      highscores = highscores.slice(0, 5);
 
+      let highScoresList = document.getElementById("highscore");
+
+      highscores.forEach((tid) => {
+          let listItem = document.createElement("li");
+          listItem.innerText = navn + ": " + tid;
+          highScoresList.appendChild(listItem);
+
+          
+      });
   }
+}
 
-    );
+);
 
-    function handleSectionClick() {}
+function handleSectionClick() {}
     
 
     
