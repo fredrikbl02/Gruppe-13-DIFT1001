@@ -8,19 +8,20 @@ body {
   background-clip: content-box;
 }
 
-
 .kort_spill {
-  width: 50vw;
+  width: 75vw;
   height: 100vh;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  left: 12%;
 }
 
 .kort {
-  width: 20%;
-  height: 22%;
-  margin: 1%;
+  width:20%;
+  height: 23%;
+  margin: 0.5%;
   position: relative;
   transform-style: preserve-3d;
   transition: 0.5s;
@@ -53,9 +54,34 @@ opacity: 1;
 transform: rotateY(180deg);
 }
 
+.container{
+  display:flex;
+  flex-direction:column;
+  justify-content: left;
+  height: 40vh;
+  width: 125px;
+  position:absolute;
+  top: 5%;
+  }
+
+#time, #leaderboard, #newGame {
+  font-size: 2em;
+  border: 2px solid #ffffff;
+  padding: 1px;
+  border-radius: 20px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 8px 3px 5px #888;
+  color: #fdfcfc;
+  background: 
+  linear-gradient(135deg, #de6f06, #ff77dd, #9760e6, #7990e6),
+  linear-gradient(45deg, #61ffae, #ddff77, #e66097, #e67990);
+  text-decoration-style: double;
+  margin: 10px 0; /* Adds vertical spacing between the elements */
+}
+/* 
 #time {
   font-size: 50px;
-
   color: #fdfcfc;
   background: 
   linear-gradient(135deg, #de6f06, #ff77dd, #9760e6, #7990e6),
@@ -63,35 +89,41 @@ transform: rotateY(180deg);
   border: 2px solid #ffffff;
   padding: 1px; 
   border-radius: 20px;
-  width: 200px;
+  width: 70%;
   text-align: center;
   box-shadow: 8px 3px 5px #888;
   text-decoration-style: double;
-
-  position: absolute;
-  top: 20%;
-  left: 8%;
-
 }
 
 #leaderboard {
   background: 
   linear-gradient(135deg, #ffae61, #ff8e77, #e66060, #dfe679),
   linear-gradient(45deg, #61ffdd, #ffdf77, #e66260, #797de6);
-  position: absolute;
-  top: 45%;
-  left:15%;
-  width: 300px; 
+  width: 70%; 
   transform: translate(-50%, -50%);
   background-color: white;
   border: 2px solid #ffffff;
   padding: 1px; 
-  border-radius: 20px;
-  width: 200px;
+  border-radius: 10px;
   text-align: center;
   box-shadow: 8px 3px 5px #888;
   text-decoration-style: double;
 }
+
+#newGame {
+  background: 
+  linear-gradient(135deg, #de6f06, #ff77dd, #9760e6, #7990e6),
+  linear-gradient(45deg, #61ffae, #ddff77, #e66097, #e67990);
+  border: 2px solid #ffffff;
+  padding: 5px; 
+  border-radius: 20px;
+  width: 70%;
+  text-align: center;
+  box-shadow: 8px 3px 5px #888;
+  text-decoration-style: double;
+  transform: translate(-50%, -50%);
+  color: black;
+} */
 
 h3 {
   font-size: 20px; 
@@ -109,48 +141,15 @@ li {
   text-align: center;
 }
 
-#newGame {
-
-  font-size: 50px;
-
-  color: #fdfcfc;
-  background: 
-  linear-gradient(135deg, #de6f06, #ff77dd, #9760e6, #7990e6),
-  linear-gradient(45deg, #61ffae, #ddff77, #e66097, #e67990);
-  border: 2px solid #ffffff;
-  padding: 1px; 
-  border-radius: 20px;
-  width: 200px;
-  text-align: center;
-  box-shadow: 8px 3px 5px #888;
-  text-decoration-style: double;
-
-  position: absolute;
-  top: 35%;
-  left: 15%;
-  transform: translate(-50%, -50%);
-  color: black;
-  font-size: 16px;
-
-
-}
 
 #startside{
-  font-size: 50px;
-
+  font-size: 100%;
   color: #fdfcfc;
-  background: 
-  linear-gradient(135deg, #de6f06, #ff77dd, #9760e6, #7990e6),
-  linear-gradient(45deg, #61ffae, #ddff77, #e66097, #e67990);
-  border: 2px solid #ffffff;
-  padding: 1px; 
-  border-radius: 20px;
-  width: 200px;
+  width: auto;
   text-align: center;
-  box-shadow: 8px 3px 5px #888;
 
   position: absolute;
-  top: 2%;
-  left: 2%;
+  
 
 }
+
