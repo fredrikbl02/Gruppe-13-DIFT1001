@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let minutes = Math.floor(seconds / 60); // Beregner antall minutter ved å ta heltall sekunder / 60
     let remainingSeconds = seconds % 60; // Beregner antall sekunder det er igjen ved hjelp av modulus
     let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
-    let timer = minutes + ":" + formattedSeconds + ":" + tideler;
+    let timer = minutes + ":" + formattedSeconds + "." + tideler;
     return timer;
   }
 
