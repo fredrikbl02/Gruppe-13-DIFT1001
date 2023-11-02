@@ -9,19 +9,19 @@ body {
 }
 
 .kort_spill {
-  width: 50vw;
+  width: 75vw;
   height: 100vh;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  left: 10%;
+  left: 12%;
 }
 
 .kort {
-  width: 20%;
-  height: 22%;
-  margin: 1%;
+  width:20%;
+  height: 23%;
+  margin: 0.5%;
   position: relative;
   transform-style: preserve-3d;
   transition: 0.5s;
@@ -59,18 +59,17 @@ transform: rotateY(180deg);
   flex-direction:column;
   justify-content: left;
   height: 40vh;
-  width: 20vw;
+  width: 125px;
   position:absolute;
   top: 5%;
-  left: 5%;
-}
+  }
 
 #time, #leaderboard, #newGame {
   font-size: 2em;
   border: 2px solid #ffffff;
   padding: 1px;
   border-radius: 20px;
-  width: 70%;
+  width: 100%;
   text-align: center;
   box-shadow: 8px 3px 5px #888;
   color: #fdfcfc;
@@ -153,3 +152,4 @@ li {
   
 
 }
+
