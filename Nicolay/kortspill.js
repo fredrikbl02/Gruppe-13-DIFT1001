@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 clearInterval(timer);
                 setTimeout(() => {
                 displayHighscores();
+                saveHighscores(highscores, navnArray);
               }, 800);
             };
             
@@ -132,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return timer;
     }
 
+
     function displayHighscores() {
       console.log("suksess");
       let tid = formatTime(seconds, tideler);
@@ -155,10 +157,43 @@ document.addEventListener("DOMContentLoaded", function () {
           });
       }
   }
-
     );
 
-    function handleSectionClick() {}
+    // Save highscores to localStorage
+function saveHighscores(highscores, navnArray) {
+  localStorage.setItem('highscores', JSON.stringify(highscores));
+  localStorage.setItem('navnArray', JSON.stringify(navnArray));
+}
+
+// Load highscores from localStorage
+function loadHighscores() {
+  let highscores = localStorage.getItem('highscores');
+  return highscores ? JSON.parse(highscores) : [];
+
+  let navnArray = localStorage.getItem('navnArray');
+  return navnArray ? JSON.parse(navnArray) : [];
+}
+
+// // Restart the game
+// function restartGame() {
+//   // Reset the game state
+//   firstCard = null;
+//   secondCard = null;
+//   isFlipping = false;
+//   count = 0;
+// }
+
+//   // Reset the UI elements
+//   for (const kortside of kort) {
+//     kortside.classList.remove('flipped', 'matched');
+//   }
+
+//   document.getElementById("newGame").onclick = () => {
+//     console.log("new game");
+//     saveHighscores(highscores, navnArray);
+//     restartGame();
+//   }
+
     
 
     
