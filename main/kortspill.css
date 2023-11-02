@@ -60,10 +60,6 @@ transform: rotateY(0deg);
 transition: opacity 0.25s 0.25s;
 }
 
-.kort.flipped .bak{
-  opacity: 0;
-}
-
 .bak {
 opacity: 1;
 transform: rotateY(180deg);
