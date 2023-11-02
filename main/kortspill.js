@@ -8,12 +8,15 @@ document.addEventListener("DOMContentLoaded", function () {
    
     
     
-    
+    function bakEventListener() {
     for (const bakside of bak) { //dette er en for of loop som kjører gjennom hvert element med class "bak". 
         bakside.addEventListener("click", function() { //her hører programmet etter et "click" på en av bildene med class "bak"
           bakside.parentElement.classList.toggle("flipped"); //når den hører et klikk setter den en css style som heter "flipped" til true
         });
       };
+    };
+
+    bakEventListener();
     
     // dette er funksjon for å matche kort med hverandre
     
@@ -45,11 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if (count === 8) {
                 clearInterval(timer);
                 setTimeout(() => {
-                    alert("you won!");
-                }, 800);
+                    console.log("You won!")
+                }, 1000);
                 displayHighscores();
             };
-            
 
             // If it's a match, remove the click event listener to lock the matched cards
             firstCard.classList.add('matched');
@@ -133,6 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
       return timer;
     }
 
+// highscores
+
     function displayHighscores() {
       console.log("suksess");
       let tid = formatTime(seconds, tideler);
@@ -152,6 +156,17 @@ document.addEventListener("DOMContentLoaded", function () {
               
           });
       }
+
+      function startOver () {
+        const cardWon = document.getElementsByClassName("bak") 
+              for (let i = 0; i < cardWon.length; i++) {
+                cardWon[i].style.opacity = 1;
+              }
+              shuffleCards();
+              bakEventListener();
+              console.log("new game");
+      };
+
   }
 
     );
@@ -159,5 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleSectionClick() {}
     
 
+    
     
       
