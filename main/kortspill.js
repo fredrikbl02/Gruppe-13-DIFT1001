@@ -5,6 +5,49 @@ document.addEventListener("DOMContentLoaded", function () {
     const kort = document.getElementsByClassName("kort"); //henter ut alt med class "kort";
 
 
+    let seconds = 0;
+    let tideler = 0;
+    let timer = null;
+     //Timer
+
+      // Denne funksjonen gjør at dersom sekunder overstiger 60 blir det omgjort til minutter
+      function formatTime(seconds, tideler) {
+        let minutes = Math.floor(seconds / 60); // Beregner antall minutter ved å ta heltall sekunder / 60
+        let remainingSeconds = seconds % 60; // Beregner antall sekunder det er igjen ved hjelp av modulus
+        let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
+        let timer = minutes + ":" + formattedSeconds + ":" + tideler;
+        return timer;
+      }
+
+     function startTimer () {
+      const section = document.getElementById("section");
+      let functionCalled = false; // Flag to track if the function has been called
+      let time = document.getElementById("time");
+      time.innerText = formatTime(seconds, tideler);
+ 
+      section.addEventListener("click", function () {
+        if (!functionCalled) {
+  
+          // Timer for tideler og sekunder
+          timer = setInterval(() => {
+            tideler++; // Tideler legges til (inkrement)
+            if (tideler === 10) { // Når tideler når 10 resettes tideler til 0 og sekunder inkremeres (øker med 1)
+              tideler = 0;
+              seconds++;
+            }
+            time.innerText = formatTime(seconds, tideler);
+          }, 100); // legges til hvert tidel av et sekund
+  
+          console.log("Function has been called");
+          functionCalled = true;
+  
+          // Set the flag to true to prevent the function from being called again
+          functionCalled = true;
+          }});
+ 
+
+    
+    };
    
     
     
@@ -95,44 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    
-     //Timer
 
-     const section = document.getElementById("section");
-     let functionCalled = false; // Flag to track if the function has been called
-     let time = document.getElementById("time");
-     let seconds = 0;
-     let tideler = 0;
-     time.innerText = formatTime(seconds, tideler);
 
-     section.addEventListener("click", function () {
-       if (!functionCalled) {
- 
-         // Timer for tideler og sekunder
-         timer = setInterval(() => {
-           tideler++; // Tideler legges til (inkrement)
-           if (tideler === 10) { // Når tideler når 10 resettes tideler til 0 og sekunder inkremeres (øker med 1)
-             tideler = 0;
-             seconds++;
-           }
-           time.innerText = formatTime(seconds, tideler);
-         }, 100); // legges til hvert tidel av et sekund
- 
-         console.log("Function has been called");
-         functionCalled = true;
- 
-         // Set the flag to true to prevent the function from being called again
-         functionCalled = true;
-         }});
-
-    // Denne funksjonen gjør at dersom sekunder overstiger 60 blir det omgjort til minutter
-    function formatTime(seconds, tideler) {
-      let minutes = Math.floor(seconds / 60); // Beregner antall minutter ved å ta heltall sekunder / 60
-      let remainingSeconds = seconds % 60; // Beregner antall sekunder det er igjen ved hjelp av modulus
-      let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
-      let timer = minutes + ":" + formattedSeconds + ":" + tideler;
-      return timer;
-    }
+    startTimer();
 
 // highscores
 
@@ -158,11 +166,27 @@ function displayHighscores() {
           
       });
   }
-}
 
-);
 
-function handleSectionClick() {}
+  document.getElementById("newGame").onclick = () => {      
+    for (const kortside of kort) {
+      kortside.classList.remove('flipped', 'matched');
+    };
+    shuffleCards();
+    time.innerText = formatTime(0, 0);
+    count = 0;
+    
+    if (timer !== null) {
+      clearInterval(timer);
+  }
+    seconds = 0;
+    tideler = 0;
+    startTimer();
+ };
+
+});
+
+
     
 
     

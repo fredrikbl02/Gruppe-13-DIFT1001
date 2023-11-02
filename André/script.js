@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const foran = document.getElementsByClassName("foran"); //henter ut alt med class "foran";
   const kort = document.getElementsByClassName("kort"); //henter ut alt med class "kort";
 
-  
+  let seconds = 0;
+  let tideler = 0;  
 
 
   // Denne funksjonen gjør at dersom sekunder overstiger 60 blir det omgjort til minutter
@@ -57,11 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
           };
 
           if (count === 8) {
-              setTimeout(() => {
-                  prompt("You won! Write your name here")
-              }, 1000);
-              displayHighscores();
-          };
+            clearInterval(timer);
+            setTimeout(() => {
+            displayHighscores();
+          }, 800);
+        };
 
           // If it's a match, remove the click event listener to lock the matched cards
           firstCard.classList.add('matched');
@@ -78,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
             firstCard = null;
             secondCard = null;
             isFlipping = false;
-          }, 700);
+          }, 500);
         }
       }
     });
@@ -145,39 +146,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // highscores
 
-  function displayHighscores() {
-    console.log("suksess");
-    let tid = formatTime(seconds, tideler);
-    let highscores = [];
+function displayHighscores() {
+  console.log("suksess");
+  let tid = formatTime(seconds, tideler);
+  let highscores = [];
+  let navnArray = [];
 
-        highscores.push(tid);
-        highscores.sort();
-        highscores = highscores.slice(0, 4); // Keep only the top 5
+  let navn = prompt("Gratulerer! Skriv inn navnet ditt her: ");
 
-        let highScoresList = document.getElementById("highscore");
+      highscores.push(tid);
+      navnArray.push(navn);
+      highscores = highscores.slice(0, 5);
 
-        highscores.forEach((tid) => {
-            let listItem = document.createElement("li");
-            listItem.innerText = tid;
-            highScoresList.appendChild(listItem);
-  
-            
-        });
-    }
+      let highScoresList = document.getElementById("highscore");
+
+      highscores.forEach((tid) => {
+          let listItem = document.createElement("li");
+          listItem.innerText = navn + ": " + tid;
+          highScoresList.appendChild(listItem);
+
+          
+      });
+  }
+
 
    document.getElementById("newGame").onclick = () => {      
       for (const kortside of kort) {
         kortside.classList.remove('flipped', 'matched');
       };
       shuffleCards();
-      clearInterval(timer);
       time.innerText = formatTime(0, 0);
+      // clearInterval(timer);
       count = 0;
       startTimer();
    };
 
-}
 
-  );
+
+
+
+
+
+
+
+
+});
 
   
