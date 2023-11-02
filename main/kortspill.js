@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (count === 8) {
               clearInterval(timer);
               setTimeout(() => {
-              displayHighscores();
+              addHighscore();
             }, 800);
           };
 
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
               firstCard = null;
               secondCard = null;
               isFlipping = false;
-            }, 600);
+            }, 500);
           }
         }
       });
@@ -142,37 +142,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
     startTimer();
 
-// highscores
+//Definerer highscore array fra local storage
+let highscores = JSON.parse(localStorage.getItem('highscores')) || [];
 
-function displayHighscores() {
+//Konverterer tid (Som er gjøres om til en string i format time funksjonen) til sekunder
+function timeToSeconds(time) {
+  let [minutes, seconds, milliseconds] = time.split(':').map(Number);
+  return minutes * 60 + seconds + milliseconds / 100;
+}
+
+//Legger til highscore i arrayen og sorterer den etter tid
+
+function addHighscore() {
   console.log("suksess");
   let tid = formatTime(seconds, tideler);
-  let highscores = [];
-  let navnArray = [];
-
   let navn = prompt("Gratulerer! Skriv inn navnet ditt her: ");
 
-      highscores.push(tid);
-      navnArray.push(navn);
+      highscores.push({name: navn, score: tid});
+      highscores.sort((a, b) => timeToSeconds(a.score) - timeToSeconds(b.score));
       highscores = highscores.slice(0, 5);
 
-      let highScoresList = document.getElementById("highscore");
+      localStorage.setItem('highscores', JSON.stringify(highscores));
+      
+      displayHighscores();
+  }
 
-      highscores.forEach((tid) => {
+  //Viser highscores 
+
+  function displayHighscores() {
+      let highScoresList = document.getElementById("highscore");
+      highScoresList.innerHTML = '';
+
+      highscores.forEach((highscore) => {
           let listItem = document.createElement("li");
-          listItem.innerText = navn + ": " + tid;
+          listItem.innerText = highscore.name + ": " + highscore.score;
           highScoresList.appendChild(listItem);
 
           
       });
   }
 
+  //Loader highscores fra local storage når siden lastes inn
+
+  window.onload = function() {
+    highscores = JSON.parse(localStorage.getItem('highscores')) || [];
+    displayHighscores();
+  };
+
+  //Ny runde
 
   document.getElementById("newGame").onclick = () => {      
     for (const kortside of kort) {
       kortside.classList.remove('flipped', 'matched');
     };
-    shuffleCards();
+    setTimeout(() => {
+      shuffleCards();
+    }, 600);
     time.innerText = formatTime(0, 0);
     count = 0;
     
