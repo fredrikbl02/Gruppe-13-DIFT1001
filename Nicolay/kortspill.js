@@ -38,16 +38,15 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Match!");
             //teller opp antall matcher
         
-            if (count < 8) {
+            if (count < 1) {
                 count++;
             };
 
-            if (count === 8) {
-                clearInterval(timer)
+            if (count === 1) {
+                clearInterval(timer);
                 setTimeout(() => {
-                    alert("you won!")
-                }, 800);
-                
+                displayHighscores();
+              }, 800);
             };
             
 
@@ -66,15 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
               firstCard = null;
               secondCard = null;
               isFlipping = false;
-            }, 700);
+            }, 600);
           }
         }
       });
     }
-    
-    
-
-    
     
     // denne funksjonen viser verdien til kortene
     
@@ -85,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
         
       });
     }
-    
     
     
     shuffleCards();
@@ -99,15 +93,73 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
+    
+     //Timer
 
+     const section = document.getElementById("section");
+     let functionCalled = false; // Flag to track if the function has been called
+     let time = document.getElementById("time");
+     let seconds = 0;
+     let tideler = 0;
+     time.innerText = formatTime(seconds, tideler);
 
+     section.addEventListener("click", function () {
+       if (!functionCalled) {
+ 
+         // Timer for tideler og sekunder
+         timer = setInterval(() => {
+           tideler++; // Tideler legges til (inkrement)
+           if (tideler === 10) { // Når tideler når 10 resettes tideler til 0 og sekunder inkremeres (øker med 1)
+             tideler = 0;
+             seconds++;
+           }
+           time.innerText = formatTime(seconds, tideler);
+         }, 100); // legges til hvert tidel av et sekund
+ 
+         console.log("Function has been called");
+         functionCalled = true;
+ 
+         // Set the flag to true to prevent the function from being called again
+         functionCalled = true;
+         }});
 
+    // Denne funksjonen gjør at dersom sekunder overstiger 60 blir det omgjort til minutter
+    function formatTime(seconds, tideler) {
+      let minutes = Math.floor(seconds / 60); // Beregner antall minutter ved å ta heltall sekunder / 60
+      let remainingSeconds = seconds % 60; // Beregner antall sekunder det er igjen ved hjelp av modulus
+      let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
+      let timer = minutes + ":" + formattedSeconds + ":" + tideler;
+      return timer;
+    }
 
+    function displayHighscores() {
+      console.log("suksess");
+      let tid = formatTime(seconds, tideler);
+      let highscores = [];
+      let navnArray = [];
 
+      let navn = prompt("Gratulerer! Skriv inn navnet ditt her: ");
 
+          highscores.push(tid);
+          navnArray.push(navn);
+          highscores = highscores.slice(0, 5);
+  
+          let highScoresList = document.getElementById("highscore");
+  
+          highscores.forEach((tid) => {
+              let listItem = document.createElement("li");
+              listItem.innerText = navn + ": " + tid;
+              highScoresList.appendChild(listItem);
+    
+              
+          });
+      }
+  }
 
+    );
 
-    });
+    function handleSectionClick() {}
+    
 
     
       
