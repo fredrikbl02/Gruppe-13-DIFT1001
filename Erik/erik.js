@@ -1,155 +1,170 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
   
-    const bak = document.getElementsByClassName("bak"); //henter ut alt med class "bak" og lagrer det i en variabel
-    const foran = document.getElementsByClassName("foran"); //henter ut alt med class "foran";
-    const kort = document.getElementsByClassName("kort"); //henter ut alt med class "kort";
-    
-    
-    
-    for (const bakside of bak) { //dette er en for of loop som kjører gjennom hvert element med class "bak". 
-        bakside.addEventListener("click", function() { //her hører programmet etter et "click" på en av bildene med class "bak"
-          bakside.parentElement.classList.toggle("flipped"); //når den hører et klikk setter den en css style som heter "flipped" til true
-          // antallKlikk++;
-           //if (test) {  //i denne funksjonen prøver jeg å få kortene til å flippe tilbake til baksiden sin når baksidene har blitt trykket på partall antall ganger
-            
-          // }
-        });
-      };
-    
-    // dette er funksjon for å matche kort med hverandre
+  const bak = document.getElementsByClassName("bak"); //henter ut alt med class "bak" og lagrer det i en variabel
+  const foran = document.getElementsByClassName("foran"); //henter ut alt med class "foran";
+  const kort = document.getElementsByClassName("kort"); //henter ut alt med class "kort";
+
+
+ 
   
-    let firstCard = null;
-    let secondCard = null;
-    
-    for (const kortside of kort) {
-      kortside.addEventListener("click", function () {
-        if (!firstCard) {
-          // If firstCard is null, this is the first card being clicked
-          firstCard = kortside.dataset.framework;
-        } else if (!secondCard) {
-          // If firstCard is assigned, but secondCard is still null, this is the second card being clicked
-          secondCard = kortside.dataset.framework;
-    
-          // Now, you can compare their data-framework values
-          if (firstCard === secondCard) {
-            console.log("Match!");
-          } else {
-            console.log("No match!");
-            setTimeout(() => {
-            firstCard.style.opacity = "1";
-            secondCard.style.opacity = "1";
-            
-            }, 1000);
-            
-          };
-    
-          // Reset the firstCard and secondCard for the next turn
-          firstCard = null;
-          secondCard = null;
-        };
+  
+  function bakEventListener() {
+  for (const bakside of bak) { //dette er en for of loop som kjører gjennom hvert element med class "bak". 
+      bakside.addEventListener("click", function() { //her hører programmet etter et "click" på en av bildene med class "bak"
+        bakside.parentElement.classList.toggle("flipped"); //når den hører et klikk setter den en css style som heter "flipped" til true
       });
     };
-    
-    
-    
-    // denne funksjonen viser verdien til kortene
-    
-    for (const kortside of kort) {
-      kortside.addEventListener("click", function () {
-        const clickedCardValue = kortside.dataset.framework;
-        console.log("Clicked card value forside: " + clickedCardValue);
-        
-      });
-    }
-    
-    
-    
-    shuffleCards();
-    
-    //Denne funksjonen plasserer kortene tilfeldig
-    function shuffleCards() {
-      var kort = document.querySelectorAll('.kort');
-      kort.forEach(kort => {
-          var randomPos = Math.floor(Math.random() * 16);
-          kort.style.order = randomPos;
-      });
-    }
-    
-    
-    
-    
+  };
+
+  bakEventListener();
+  
+  // dette er funksjon for å matche kort med hverandre
+  
+  let firstCard = null;
+  let secondCard = null;
+  let isFlipping = false; // To prevent clicking more cards while comparison is in progress
+  let count = 0; 
+  
+  for (const kortside of kort) {
+    kortside.addEventListener("click", function () {
+      if (!isFlipping && !firstCard && !kortside.classList.contains('matched')) {
+        // If no cards are flipping and firstCard is null, this is the first card being clicked
+        firstCard = kortside;
+        kortside.classList.add('flipped'); // Add a class to show the card's face
+      } else if (!isFlipping && firstCard !== kortside && !secondCard) {
+        // If no cards are flipping and firstCard is assigned, but secondCard is still null, this is the second card being clicked
+        secondCard = kortside;
+        kortside.classList.add('flipped'); // Add a class to show the card's face
+  
+        // Now, you can compare their data-framework values
+        if (firstCard.dataset.framework === secondCard.dataset.framework && firstCard !== secondCard && !kortside.classList.contains('matched')) {
+          console.log("Match!");
+          //teller opp antall matcher
+      
+          if (count < 8) {
+              count++;
+          };
+
+          if (count === 8) {
+            clearInterval(timer);
+            setTimeout(() => {
+            displayHighscores();
+          }, 800);
+        };
+
+          // If it's a match, remove the click event listener to lock the matched cards
+          firstCard.classList.add('matched');
+          secondCard.classList.add('matched');
+          firstCard = null;
+          secondCard = null;
+        } else {
+          console.log("No match!");
+          isFlipping = true;
+          // If it's not a match, flip the cards back after a delay
+          setTimeout(() => {
+            firstCard.classList.remove('flipped');
+            secondCard.classList.remove('flipped');
+            firstCard = null;
+            secondCard = null;
+            isFlipping = false;
+          }, 600);
+        }
+      }
     });
-    
-
-    function StartButton() {
-
-      let time = document.getElementById("time");
-      let seconds = 0;
-      let tideler = 0;
-      time.innerText = formatTime(seconds, tideler);
-      let highscores = [];
-
+  }
+  
+  // denne funksjonen viser verdien til kortene
+  
+  for (const kortside of kort) {
+    kortside.addEventListener("click", function () {
+      const clickedCardValue = kortside.dataset.framework;
+      console.log("Clicked card value forside: " + clickedCardValue);
       
+    });
+  }
+  
+  
+  shuffleCards();
+  
+  //Denne funksjonen plasserer kortene tilfeldig
+  function shuffleCards() {
+    var kort = document.querySelectorAll('.kort');
+    kort.forEach(kort => {
+        var randomPos = Math.floor(Math.random() * 16);
+        kort.style.order = randomPos;
+    });
+  }
 
+  
+   //Timer
 
+   const section = document.getElementById("section");
+   let functionCalled = false; // Flag to track if the function has been called
+   let time = document.getElementById("time");
+   let seconds = 0;
+   let tideler = 0;
+   time.innerText = formatTime(seconds, tideler);
 
+   section.addEventListener("click", function () {
+     if (!functionCalled) {
 
-      //Timer for tideler og sekunder
-     let interval = setInterval(() => {
-        tideler++; //Tideler legges til (inkrement)
-        if(tideler===10){ //Når tideler når 10 resettes tideler til 0 og sekunder inkremeres (øker med 1)
-        tideler = 0;
-        seconds++;
-        }
-        time.innerText = formatTime(seconds, tideler);
+       // Timer for tideler og sekunder
+       timer = setInterval(() => {
+         tideler++; // Tideler legges til (inkrement)
+         if (tideler === 10) { // Når tideler når 10 resettes tideler til 0 og sekunder inkremeres (øker med 1)
+           tideler = 0;
+           seconds++;
+         }
+         time.innerText = formatTime(seconds, tideler);
+       }, 100); // legges til hvert tidel av et sekund
 
-      }, 100); // legges til hvert tidel av et sekund
+       console.log("Function has been called");
+       functionCalled = true;
 
-      
+       // Set the flag to true to prevent the function from being called again
+       functionCalled = true;
+       }});
 
-      //Denne funksjonen gjør at dersom sekunder overstiger 60 blir det omgjort til minutter
-      function formatTime(seconds, tideler){
-        let minutes = Math.floor(seconds/60); //Beregner antall minutter ved å ta heltall sekunder / 60, dvs -->
-        //80 sekunder blir fortsatt 60=1 minutt fordi det er nærmeste hele tall
-        let remainingSeconds = seconds % 60; //Beregner antall sekunder det er igjen ved hjelp av modulus
-        let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
-        //F.eks. 200%60 blir 20 fordi 60*3= 180, 20 i rest. Dette betyr 3 minutter og 20 sekunder
-        let timer = minutes + ":" + formattedSeconds + "." + tideler; //Skriver ut
-        return timer; //Skriver ut
-      }
+  // Denne funksjonen gjør at dersom sekunder overstiger 60 blir det omgjort til minutter
+  function formatTime(seconds, tideler) {
+    let minutes = Math.floor(seconds / 60); // Beregner antall minutter ved å ta heltall sekunder / 60
+    let remainingSeconds = seconds % 60; // Beregner antall sekunder det er igjen ved hjelp av modulus
+    let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
+    let timer = minutes + ":" + formattedSeconds + ":" + tideler;
+    return timer;
+  }
 
-      function stopTimer(){
-        clearInterval(interval);
+// highscores
 
-        let time = formatTime(seconds, tideler);
-        highscores.push(time);
-        highscores.sort();
+function displayHighscores() {
+console.log("suksess");
+let tid = formatTime(seconds, tideler);
+let highscores = [];
+let navnArray = [];
 
-        if (highscores.length > 5) {
-          highscores = highscores.slice(0, 5); // Keep only the top 5
-      }
+let navn = prompt("Gratulerer! Skriv inn navnet ditt her: ");
 
-        displayHighscores();
+    highscores.push(tid);
+    navnArray.push(navn);
+    highscores = highscores.slice(0, 5);
 
-        alert('Tiden din ble ' + time);
-      }
+    let highScoresList = document.getElementById("highscore");
 
-      setTimeout(() => {
-        stopTimer();
-      }, 1000);
+    highscores.forEach((tid) => {
+        let listItem = document.createElement("li");
+        listItem.innerText = navn + ": " + tid;
+        highScoresList.appendChild(listItem);
 
-      function displayHighscores() {
-        for (let i = 0; i < highscores.length; i++) {
-            let listItem = document.getElementById("highscoreItem" + (i + 1));
-            listItem.innerText = highscores[i];
-        }
-    }
+        
+    });
+}
+}
 
+);
 
+function handleSectionClick() {}
+  
 
-    }
-    
-    
+  
+  
     
