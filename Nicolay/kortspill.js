@@ -65,16 +65,15 @@ document.addEventListener("DOMContentLoaded", function () {
     
     let firstCard = null;
     let secondCard = null;
-    let isFlipping = false; // To prevent clicking more cards while comparison is in progress
     let count = 0; 
     
     for (const kortside of kort) {
       kortside.addEventListener("click", function () {
-        if (!isFlipping && !firstCard && !kortside.classList.contains('matched')) {
+        if (!firstCard && !kortside.classList.contains('matched')) {
           // If no cards are flipping and firstCard is null, this is the first card being clicked
           firstCard = kortside;
           kortside.classList.add('flipped'); // Add a class to show the card's face
-        } else if (!isFlipping && firstCard !== kortside && !secondCard) {
+        } else if (firstCard !== kortside && !secondCard) {
           // If no cards are flipping and firstCard is assigned, but secondCard is still null, this is the second card being clicked
           secondCard = kortside;
           kortside.classList.add('flipped'); // Add a class to show the card's face
@@ -102,14 +101,13 @@ document.addEventListener("DOMContentLoaded", function () {
             secondCard = null;
           } else {
             console.log("No match!");
-            isFlipping = true;
+            
             // If it's not a match, flip the cards back after a delay
             setTimeout(() => {
               firstCard.classList.remove('flipped');
               secondCard.classList.remove('flipped');
               firstCard = null;
               secondCard = null;
-              isFlipping = false;
             }, 500);
           }
         }
