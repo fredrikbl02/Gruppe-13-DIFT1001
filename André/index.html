@@ -26,14 +26,14 @@
         <h1 class="display-4">Overskrift kommer her</h1></div>
 
        
-        <div id="timer">Time: 0 seconds</div>
+        <div><h4>Tid:</h4></div><div id="time">0:00:0</div>
     
     
     <!-- Navigasjonsmeny (Bootstrap)-->
     
     <nav class="navbar navbar-expand-sm navbar-light bg-pink">
         <div class="container-fluid">
-        <a class="navbar-brand" href="nettside.html">Startside</a>
+        <a class="navbar-brand" href="index.html">Startside</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span class="navbar-toggler-icon"></span></button>
               
             <div class="collapse navbar-collapse" id="mynavbar">
@@ -54,10 +54,16 @@
             </div>
         </div>
     </nav>
-      
-<button id="newGameButton" onclick="StartButton()">Start game!</button>
 
-<section class="kort_spill">
+    <div id="leaderboard">
+        <h3>Leaderboard</h3>
+        <ol id="highscore" type="1">
+        </ol>
+    </div>
+      
+<button id="newGame">New game</button>
+
+<section class="kort_spill" id="section">
 <div class="kort" data-framework="1">
     <img class="foran" src="Kort/kort_1.png">
     <img class="bak" src="Kort/Kort_bak.gif">
@@ -138,7 +144,6 @@
     <img class="bak" src="Kort/Kort_bak.gif">
 </div>
 </section>
-
 </body>
 
 </html>
