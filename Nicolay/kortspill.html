@@ -21,12 +21,12 @@
 </head>
 
 <body>
-    <div id="hovedoverskrift" class="text-center container mt-3">
-
-        <h1 class="display-4">Overskrift kommer her</h1></div>
+  
 
        
-        <div><h4>Tid:</h4></div><div id="time">0:00:0</div>
+
+       
+        <div><h4></h4></div><div id="time">0:00:0</div>
     
     
     <!-- Navigasjonsmeny (Bootstrap)-->
@@ -36,24 +36,8 @@
         <a class="navbar-brand" href="index.html">Startside</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span class="navbar-toggler-icon"></span></button>
               
-            <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                    <a class="nav-link" href="André/index.html">Side 2</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="her kommer link">Side 3</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="her kommer link">Side 4</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="(her kommer link til neste side)">Side 5</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+              
 
     <div id="leaderboard">
         <h3>Leaderboard</h3>
@@ -61,9 +45,9 @@
         </ol>
     </div>
       
-    <!-- <button id="newGameButton" onclick="StartButton()">Start game!</button> -->
+<button id="newGame">New game</button>
 
-<section class="kort_spill" id="section">
+<section class="kort_spill" id="section" onclick="handleSectionClick(this)">
 <div class="kort" data-framework="1">
     <img class="foran" src="Kort/kort_1.png">
     <img class="bak" src="Kort/Kort_bak.gif">
