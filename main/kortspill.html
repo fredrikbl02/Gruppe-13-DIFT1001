@@ -21,23 +21,16 @@
 </head>
 
 <body>
-  
 
-       
 
-       
-        <div><h4></h4></div><div id="time">0:00:0</div>
-    
-    
-    <!-- Navigasjonsmeny (Bootstrap)-->
-    
-    <nav class="navbar navbar-expand-sm navbar-light bg-pink">
-        <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">Startside</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span class="navbar-toggler-icon"></span></button>
-              
 
-              
+    <div></div><div id="time">0:00:0</div>    
+    
+    <button onclick="window.location.href='index.html'" id="startside">Startside</button>   
+      
+    <button id="newGame">Game</button>
+
+
 
     <div id="leaderboard">
         <h3>Leaderboard</h3>
@@ -47,7 +40,7 @@
       
 <button id="newGame">New game</button>
 
-<section class="kort_spill" id="section">
+<section class="kort_spill" id="section" onclick="handleSectionClick(this)">
 <div class="kort" data-framework="1">
     <img class="foran" src="Kort/kort_1.png">
     <img class="bak" src="Kort/Kort_bak.gif">
@@ -128,6 +121,13 @@
     <img class="bak" src="Kort/Kort_bak.gif">
 </div>
 </section>
+
+
+
+
+
+
+
 </body>
 
 </html>

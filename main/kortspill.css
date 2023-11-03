@@ -18,6 +18,7 @@ transform: translate(-50%, -50%);
 color: black;
 font-size: 16px;
 
+
 }
 
 #startTimer {
@@ -92,18 +93,20 @@ transform: rotateY(180deg);
   box-shadow: 8px 3px 5px #888;
   text-decoration-style: double;
 
+  
+
 }
 
 #leaderboard {
+
+ 
+
+  font-size: 50px;
+
+  color: #fdfcfc;
   background: 
-  linear-gradient(135deg, #ffae61, #ff8e77, #e66060, #dfe679),
-  linear-gradient(45deg, #61ffdd, #ffdf77, #e66260, #797de6);
-  position: absolute;
-top: 0%;
-right: -5%;
-  width: 300px; 
-  transform: translate(-50%, -50%);
-  background-color: white;
+  linear-gradient(135deg, #de6f06, #ff77dd, #9760e6, #7990e6),
+  linear-gradient(45deg, #61ffae, #ddff77, #e66097, #e67990);
   border: 2px solid #ffffff;
   padding: 1px; 
   border-radius: 20px;
@@ -111,6 +114,14 @@ right: -5%;
   text-align: center;
   box-shadow: 8px 3px 5px #888;
   text-decoration-style: double;
+
+
+  position: relative;
+
+right: 0%;
+
+
+
 }
 
 h3 {
@@ -145,12 +156,34 @@ li {
   box-shadow: 8px 3px 5px #888;
   text-decoration-style: double;
 
-  position: absolute;
-  top: 5%;
-  left: 6%;
-  transform: translate(-50%, -50%);
-  color: black;
-  font-size: 16px;
+
+  position: relative;
+right: 0%;
+
+
+
+
+}
+
+
+#startside {
+  font-size: 50px;
+
+ 
+
+
+
+  color: #fdfcfc;
+  background: 
+  linear-gradient(135deg, #de6f06, #ff77dd, #9760e6, #7990e6),
+  linear-gradient(45deg, #61ffae, #ddff77, #e66097, #e67990);
+  border: 2px solid #ffffff;
+  padding: 1px; 
+  border-radius: 20px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 8px 3px 5px #888;
+  text-decoration-style: double;
 
 
 }
