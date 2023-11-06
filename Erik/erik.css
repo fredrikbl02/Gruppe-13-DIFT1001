@@ -9,19 +9,24 @@ body {
 }
 
 .kort_spill {
-  width: 75vw;
-  height: 100vh;
+  min-width: 350px;
+  max-width: 600px;
+  width: 65vw;
+  height: 70vh;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  left: 12%;
+  left: 9%;
 }
 
 .kort {
-  width:20%;
-  height: 23%;
-  margin: 0.5%;
+  width: 9vw;
+  height: 25vh;
+  min-width: 84px;
+  min-height: 100px;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
   position: relative;
   transform-style: preserve-3d;
   transition: 0.5s;
