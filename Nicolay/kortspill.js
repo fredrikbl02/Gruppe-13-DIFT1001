@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let minutes = Math.floor(seconds / 60); // Beregner antall minutter ved å ta heltall sekunder / 60
         let remainingSeconds = seconds % 60; // Beregner antall sekunder det er igjen ved hjelp av modulus
         let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
-        let timer = minutes + ":" + formattedSeconds + ":" + tideler;
+        let timer = minutes + ":" + formattedSeconds + "." + tideler;
         return timer;
       }
 
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
     startTimer();
 
 //Definerer highscore array fra local storage
-let highscores = JSON.parse(localStorage.getItem('highscores')) || [];
+let highscores = JSON.parse(localStorage.getItem('highscore')) || [];
 
 //Konverterer tid (Som er gjøres om til en string i format time funksjonen) til sekunder
 function timeToSeconds(time) {
