@@ -1,14 +1,15 @@
-$(document).ready(function(){
-    $("#hovedoverskrift").css("opacity", 1);
-        $("#hovedoverskrift").mouseenter(function() {
+function toggleVisibility() {
+    var info = document.getElementById('info');
+    if (info.style.display === 'none') {
+      info.style.display = 'block';
+      document.getElementById('toggleButton').innerText = "Remove Text";
+    } else {
+      info.style.display = 'none';
+      document.getElementById('toggleButton').innerText = "Rules And Info";
+    }
+  }
 
-            $(this).animate({opacity: 0.6});
-        });
-            $("#hovedoverskrift").mouseleave(function(){
-            $(this).animate({opacity: 1});
-        });
-
-
+    
     $(document).ready(function(){
     $(".navbar-brand").css("opacity", 1);
         $(".navbar-brand").mouseenter(function() {
@@ -34,15 +35,6 @@ $(document).ready(function(){
     });
     
 
-$(document).ready(function(){
-    $("#kortbilde").css("opacity", 0.65);
-        $("#kortbilde").mouseenter(function() {
 
-            $(this).animate({opacity: 1});
-        });
-            $("#kortbilde").mouseleave(function(){
-            $(this).animate({opacity: 0.65});
-        });
-    
-    });
-});
+
+
