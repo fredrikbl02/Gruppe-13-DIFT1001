@@ -63,16 +63,18 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // dette er funksjon for å matche kort med hverandre
     
-    let firstCard = null;
-    let secondCard = null;
+    let firstCard = null; // Set the first card to null
+    let secondCard = null; // Set the second card to null
     let count = 0; 
     
     for (const kortside of kort) {
-      kortside.addEventListener("click", function () {
+      kortside.addEventListener("click", function () { 
+
         if (!firstCard && !kortside.classList.contains('matched')) {
           // If no cards are flipping and firstCard is null, this is the first card being clicked
           firstCard = kortside;
           kortside.classList.add('flipped'); // Add a class to show the card's face
+
         } else if (firstCard !== kortside && !secondCard) {
           // If no cards are flipping and firstCard is assigned, but secondCard is still null, this is the second card being clicked
           secondCard = kortside;
@@ -95,17 +97,21 @@ document.addEventListener("DOMContentLoaded", function () {
           };
 
             // If it's a match, remove the click event listener to lock the matched cards
-            firstCard.classList.add('matched');
-            secondCard.classList.add('matched');
+            firstCard.classList.add('matched', 'disabled');
+            secondCard.classList.add('matched', 'disabled');
             firstCard = null;
             secondCard = null;
+
           } else {
             console.log("No match!");
             
             // If it's not a match, flip the cards back after a delay
+            firstCard.classList.add('disabled');
+            secondCard.classList.add('disabled');
+
             setTimeout(() => {
-              firstCard.classList.remove('flipped');
-              secondCard.classList.remove('flipped');
+              firstCard.classList.remove('flipped', 'disabled');
+              secondCard.classList.remove('flipped', 'disabled');
               firstCard = null;
               secondCard = null;
             }, 500);
@@ -113,6 +119,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
+  
+  
     
     // denne funksjonen viser verdien til kortene
     
@@ -175,6 +183,7 @@ function addHighscore() {
           let listItem = document.createElement("li");
           listItem.innerText = highscore.name + ": " + highscore.score;
           highScoresList.appendChild(listItem);
+          
 
           
       });
@@ -208,6 +217,8 @@ function addHighscore() {
  };
 
 });
+
+
 
 
     
