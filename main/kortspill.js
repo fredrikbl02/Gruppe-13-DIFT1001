@@ -189,7 +189,11 @@ function addHighscore() {
 
   //Ny runde
 
-  document.getElementById("newGame").onclick = () => {      
+  document.getElementById("newGame").onclick = () => {     
+    if (count !== 8) {
+      return
+    }
+
     for (const kortside of kort) {
       kortside.classList.remove('flipped', 'matched');
     };
