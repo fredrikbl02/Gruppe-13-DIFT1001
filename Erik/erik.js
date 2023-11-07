@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
               count++;
           };
 
-          if (count === 8) {
+          if (count === 1) {
             clearInterval(timer);
             setTimeout(() => {
             addHighscore();
