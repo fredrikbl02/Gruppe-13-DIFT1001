@@ -8,7 +8,7 @@ body {
   background-clip: content-box;
 }
 
-.kort_spill {
+/* .kort_spill {
   min-width: 350px;
   max-width: 600px;
   width: 65vw;
@@ -30,7 +30,29 @@ body {
   position: relative;
   transform-style: preserve-3d;
   transition: 0.5s;
+} */
+
+.kort_spill {
+  width: 40%;
+  height: 90vh;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* transform:translate(130%,0%); */
+  margin: 0 auto;
+  gap: 1%;
+  }
+
+.kort {
+  width: auto;
+  height: auto;
+  min-width: 85px;
+  min-height: 100px;
+  padding-top: 15%;
+  max-width: 120px;
+  transform-style: preserve-3d;
+  transition: 0.5s;
 }
+
 
 .foran, .bak {
   width: 100%;
@@ -61,7 +83,7 @@ transform: rotateY(180deg);
 
 .container{
   display:flex;
-  flex-direction:column;
+  flex-direction:column-reverse;
   justify-content: left;
   height: 40vh;
   width: 125px;
@@ -141,6 +163,13 @@ transform: rotateY(180deg);
   text-align: center;
   box-shadow: 8px 3px 5px #888;
   top: 0.5%;
+  font-size: 100%;
+  color: #fdfcfc;
+  width: auto;
+  text-align: center;
+  position: absolute;
+  
+
   }
 
 h3 {
@@ -160,14 +189,4 @@ li {
 }
 
 
-#startside{
-  font-size: 100%;
-  color: #fdfcfc;
-  width: auto;
-  text-align: center;
-
-  position: absolute;
-  
-
-}
 
