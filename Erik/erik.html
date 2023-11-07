@@ -22,25 +22,26 @@
 
 <body>
 
-    <div>
-        <button onclick="window.location.href='index.html'" id="startside">Return</button>   
-    </div>
     
-    <div class="container">
+<div class="grid-container">
+    <div class="buttons">
 
-    <div id="time">0:00.0</div>
-
-    <button id="newGame"><a id="newGameText">NEW GAME!</a></button>
-
+    <div>
+            <button onclick="window.location.href='index.html'" id="startside">Return</button>   
+    </div>
 
     <div id="leaderboard">
         <h3>Highscore</h3>
         <p id="highscore"></p>
     </div>
 
-    </div>
-      
+    <div id="time">0:00.0</div>
 
+    <button id="newGame"><a id="newGameText">NEW GAME!</a></button>
+
+    </div>
+
+      
 
 <section class="kort_spill" id="section" onclick="handleSectionClick(this)">
 
@@ -124,6 +125,8 @@
     <img class="bak" src="Kort/Kort_bak.gif">
 </div>
 </section>
+
+</div>
 </body>
 
 </html>
