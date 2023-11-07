@@ -66,7 +66,7 @@ transform: rotateY(180deg);
   height: 40vh;
   width: 125px;
   position:absolute;
-  top: 5%;
+  top: 8%;
   }
 
 #time, #leaderboard, #newGame {
@@ -81,7 +81,6 @@ transform: rotateY(180deg);
   background: 
   linear-gradient(135deg, #de6f06, #ff77dd, #9760e6, #7990e6),
   linear-gradient(45deg, #61ffae, #ddff77, #e66097, #e67990);
-  text-decoration-style: double;
   margin: 10px 0; /* Adds vertical spacing between the elements */
 }
 /* 
@@ -129,6 +128,20 @@ transform: rotateY(180deg);
   transform: translate(-50%, -50%);
   color: black;
 } */
+
+
+#startside {
+  font-size: 60px;
+  font-weight:600;
+  background: rgb(131, 13, 154);
+  border: 2px solid #ffffff;
+  padding: 4px; 
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 8px 3px 5px #888;
+  top: 0.5%;
+  }
 
 h3 {
   font-size: 20px; 
