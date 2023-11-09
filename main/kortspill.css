@@ -80,7 +80,7 @@ transform: rotateY(180deg);
 #time, #leaderboard, #newGame, #startside {
   font-size: 2em;
   border: 2px solid #ffffff;
-  padding: 1px;
+  padding: 3px;
   border-radius: 20px;
   width: 200px;
   text-align: center;
