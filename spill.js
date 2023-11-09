@@ -1,1 +1,0 @@
-yoyoyo dette er heftig yo

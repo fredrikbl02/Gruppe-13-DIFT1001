@@ -1,0 +1,105 @@
+body {
+  background: 
+    linear-gradient(135deg, #ffae61, #ff77dd, #9760e6, #7990e6),
+    linear-gradient(45deg, #61ffae, #ddff77, #e66097, #e67990);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-clip: content-box;
+}
+
+.foran, .bak {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.kort .foran {
+transform: rotateY(180deg);
+}
+
+.kort .bak {
+transform: rotateY(0deg);
+transition: opacity 0.25s 0.25s;
+}
+
+.bak {
+opacity: 1;
+transform: rotateY(180deg);
+}
+
+.kort.flipped {
+opacity: 1;
+transform: rotateY(180deg);
+}
+
+.grid-container{
+  display: grid;
+  grid-template-areas: 
+  'm c'
+  'm c'
+  ;
+}
+
+@media screen and (max-width:818px) {
+  .grid-container{
+    grid-template-areas: 
+    'm'
+    'c';
+  }
+  
+}
+
+
+.buttons{
+  display:grid;
+  height: auto;
+  grid-area: m;
+  margin: auto;
+  }
+.kort_spill {
+  display:grid;
+  position: relative;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 auto;
+  grid-area: c;
+  gap: 10px;
+  width: 70vw;
+  height: auto;
+  max-width: 77.8vh;
+  min-width: 40vh;
+  }
+  
+.kort {
+  
+  padding-bottom: 130%;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  }
+
+#time, #leaderboard, #newGame, #startside {
+  font-size: 2em;
+  border: 2px solid #ffffff;
+  padding: 1px;
+  border-radius: 20px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 8px 3px 5px #888;
+  color: #fdfcfc;
+  background: 
+  linear-gradient(135deg, #de6f06, #ff77dd, #9760e6, #7990e6),
+  linear-gradient(45deg, #61ffae, #ddff77, #e66097, #e67990);
+  margin: 10px;
+}
+
+
+
+li {
+  font-size: 16px; 
+  margin: 10px 0; 
+  text-align: center;
+}
+
+
+

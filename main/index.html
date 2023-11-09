@@ -1,216 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spillnettside</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spillnettside</title>
     
-
-
-<!--Link til JQuery biblioteket (skal brukes til å fade spillet på nettsiden)-->
+    <!--Link til JQuery biblioteket (skal brukes til å fade spillet på nettsiden)-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Linker til bootstrap biblioteket (brukes til navigasjonsmeny)-->
+    <!-- Linker til bootstrap biblioteket (brukes til navigasjonsmeny)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-<!-- Link til CSS dokument -->
+    <!-- Link til CSS dokument -->
     <link rel="stylesheet" type="text/css" href="nettside.css">
 
-<!-- Link til JS -->
+    <!-- Link til JS -->
+    <script src="index.html"></script>
     <script src="nettside.js"></script>
-
 </head>
 
-
-
 <body>
-
-    
+    <!-- Hovedoverskriften (overskriften bør endres!! 
+    Farger kan også endres til å evt passe best mulig til spillet) -->
     <div id="hovedoverskrift" class="text-center container mt-3">
-
-        <header class="display-4"><a href="index.html" class="hovedoverskriften">Spillprosjekt</a></header>
+        <header class="display-4"><a href="index.html" class="hovedoverskriften">G13</a></header>
     </div>
-    
-
-<!-- Navigasjonsmeny (Bootstrap brukes her)-->
-    <nav class="navbar navbar-expand-sm navbar-light bg-grey">
-        <div class="container-fluid">
-           <a class="navbar-brand" href="index.html"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"><span class="navbar-toggler-icon"></span></button>
-            
-                    <div class="collapse navbar-collapse" id="mynavbar">
-                        <ul class="navbar-nav mx-auto justify-content-between">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html"><b>HJEM</b></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="kortspill.html">Kortflipp</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="apple.html">Shoot The Apple Off The Head</a>
-                            </li>
-                        </ul>
-                    </div>
-        
-    
-        </div>
-    </nav>
-
-
-  
-<!-- DIV som inneholder alt på siden som er mellom navigasjonsmenyen og det grå feltet nederst/bunnteksten -->
-    
-    <div class="innhold">
-        
-        <h1 id ="overskrift1">Kortflipp</h1>
+    <h1 id ="overskrift2">The game project</h1> 
+        <!-- Overskrift og informasjon (NAVN PÅ SPILL LEGGES INN SENERE! SAMT INFORMASJON OM SPILLET. 
+        KANSKJE HVORDAN MAN SPILLER DET?) -->
 
     <br>
+    <h1 id ="overskrift1">THE JOKER CARD GAME</h1>
     <br>
+    <h1 id ="overskrift3">press the picture to play</h1>
 
-
-<!-- Link til spillet -->
+<!--Her kommer link til spillet. Den ordentlige linken må legges til senere. Og bildet kan byttes ut til mer passende, eller noe fra selve spillet-->
         
-        <div class = "container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3 text-center">
-
-                    <a href="kortspill.html">
-                        <img id="kortbilde" class="img-fluid" src="kortspillbilde2.jpg" alt="kortspill">
-                    </a>
-
-                </div>
+    <div class = "container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <a href="kortspill.html">
+                    <img id="kortbilde" class="img-fluid" src="kortspillbilde2.gif" alt="kortspill">
+                </a>
             </div>
         </div>
-    
-    
-    <br>
-   
-
-        <div id="linktekst"><i>Klikk på bildet ovenfor for å komme direkte til spillet vårt.</i></div>
-
-    <br>
-    <br>
-    <br>
-    <br>     
-        
-        <p id ="info">
-            
-            <b>Litt om spillet vårt:</b><br>
-
-            Spillet vi har laget er et kortspill som går ut på å flippe to og to kort, med mål om å få to like. Når alle kortene er snudd, har du vunnet. 
-            I det du trykker start, starter en timer som tar tida på hvor lang tid du bruker på å snu alle kortene riktig. Når du har snudd alle kortene, vil 
-            en beskjed komme opp på skjermen om at du klarte det, og tiden du fullførte på vil vises. Tiden vil legges til i en highscore på siden av nettsiden. 
-            Du vil deretter få muligheten til å spille igjen. 
-            <br>
-            <br>
-            Når du klikker deg inn på spillet, vil du få muligheten til å kjøre en prøverunde med kun 4 kort. Denne kan du også velge å hoppe over.
-
-            <br>
-            <br>
-            <br>
-            <br>
-            <b>Regler:</b><br>
-
-            Kun ett kort kan flippes av gangen. Når det første kortet ditt er flippet, kan du flippe ett kort til. Dersom de to kortene du har flippet er like hverandre, 
-            blir de liggende med bildesiden opp, og du får et poeng. Dersom de er ulike, blir de snudd tilbake igjen. Slik fortsetter spillet til alle kortene er flippet 
-            og ligger med bildesiden opp.
-            
-
-        </p>
-    
-    <br>
-    <br>
-    <br>
-    <br>
-    
-
-
-<hr>
-<!-- Shoot the apple spillet-->
-    
-        <h1 id ="overskrift1">Shoot the apple off the head</h1>
-
-    <br>
-    <br>
-    <br>
-
-        
-        <div class = "container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3 text-center">
-
-                    <a href="apple.html">
-                        <img id="applebilde" class="img-fluid" src="apple_158989157.jpg" alt="eplespill">
-                    </a>
-
-                </div>
-            </div>
-        </div>
-    
-    <br>
-   
-
-        <div id="linktekst"><i>Klikk på bildet ovenfor for å komme direkte til Shoot The Apple Off The Head</i></div>
-
-    <br>
-    <br>
-    <br>     
-        <p id ="info">
-            
-            <b>Litt om spillet:</b><br>
-
-            Spillet vi har laget er et spill der du skal skyte med pil og bue, med mål om å treffe et eple som er plassert oppå hodet til en person.
-            
-            <br>
-            
-            
-            <br>
-            <br>
-            <br>
-
-            <b>Regler:</b><br>
-
-            Du starter med å stå en gitt avstand fra personen, og for hver runde som går øker denne avstanden.
-            
-            Spillet har 20 nivåer/avstander, og det er om å gjøre å få så mange poeng som mulig. 
-            Hver gang du treffer eplet får du poeng. Hvor mange poeng du får avhenger av hvor nøyaktig du treffer.
-            Dersom du ikke treffer eplet har du tapt spillet, og du får mulighet til å prøve på nytt.<br>
-            
-
-
-        </p>
-    
-    <br>
-    <br>
-    <br>
-    
     </div>
 
+    <br>
+    <br>
+    <button onclick="toggleVisibility()" id="toggleButton">Rules And Info</button>
+      <p id ="info" style= "display: none;">
+            
+        <b>Litt om spillet vårt:</b><br>
+        Spillet vi har laget er et kortspill som går ut på å flippe to og to kort, med mål om å få to like. Når alle kortene er snudd, har du vunnet. 
+        I det du trykker start, starter en timer som tar tida på hvor lang tid du bruker på å snu alle kortene riktig. Når du har snudd alle kortene, vil 
+        en beskjed komme opp på skjermen om at du klarte det, og tiden du fullførte på vil vises. Tiden vil legges til i en highscore på siden av nettsiden. 
+        Du vil deretter få muligheten til å spille igjen. 
+        <br>
+        <br>
+        Når du klikker deg inn på spillet, vil du få muligheten til å kjøre en prøverunde med kun 4 kort. Denne kan du også velge å hoppe over.
+        <br>
+        <br>
+        <b>Regler:</b><br>
+        Kun ett kort kan flippes av gangen. Når det første kortet ditt er flippet, kan du flippe ett kort til. Dersom de to kortene du har flippet er like hverandre, 
+        blir de liggende med bildesiden opp, og du får et poeng. Dersom de er ulike, blir de snudd tilbake igjen. Slik fortsetter spillet til alle kortene er flippet 
+        og ligger med bildesiden opp.
+     </p>
+    <br>
 
-        
-<!-- Bunntekst med gruppe- og oppgaveinformasjon -->
-
+    </div> 
+    <br>
+    <br>
+    <br>
+    
+    <!-- Bunntekst med gruppe- og oppgaveinformasjon -->
     <div id="bunntekst">
-        
         <hr>
-
         <div class="infospillgruppe gruppe1">      
         <br>
         <br>
-
             Spillprosjekt H2023<br><br>
             Webutvikling og Teamarbeid<br>
             (Digital forretningsutvikling)<br>
             NTNU Trondheim<br><br>
         </div>
-
-        <div class= "infospillgruppe gruppe2"> 
-            
-        <br>
-
+            <div class= "infospillgruppe gruppe2">   
+            <br>
             <b>Gruppe 13:</b>
             <br>
             Erik Thaulow Brørby
@@ -224,12 +100,10 @@
             Ada Bjørk Munthe
             <br>
             <br>
-
         </div>
-
         <br>
-
-    </div>        
+    </div>     
 
 </body>
+
 </html>
