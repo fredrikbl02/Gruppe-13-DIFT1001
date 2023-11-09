@@ -9,7 +9,7 @@ function toggleVisibility() {
     }
   }
 
-    
+
     $(document).ready(function(){
     $(".navbar-brand").css("opacity", 1);
         $(".navbar-brand").mouseenter(function() {

@@ -1,19 +1,14 @@
-
 body {
-    background: linear-gradient(to top, #87CEEB, #483D8B, #800080); /* Bakgrunnen hovedsiden*/
-    height: 100vh; 
-  }
-
-
-
-
+  background: linear-gradient(to top, #87CEEB, #483D8B, #800080); /* Bakgrunnen hovedsiden*/
+  height: 100vh; 
+}
 
 .hovedoverskriften {
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;  /* Spillprosjekt overskriften */
-    font-size: 180%; 
-    color: #f7c80d; 
-    text-transform: uppercase; 
-    text-shadow: 
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;  /* Spillprosjekt overskriften */
+  font-size: 180%; 
+  color: #f7c80d; 
+  text-transform: uppercase; 
+  text-shadow: 
       3px 3px 0 #000, 
       5px 5px 0 #000, 
       7px 7px 0 #000; 
@@ -25,13 +20,9 @@ body {
       width: 100%;
       text-align: center;
       
-      
       background: 
       rgb(255, 0, 0);
       margin: 1px ; 
-  
-
-
 }
 
 #info {
@@ -46,26 +37,22 @@ background:
 rgb(101, 1, 114);
 
 }
-
-
-
-    /* CSS for image */
-    #kortbilde {
-        border: 2px solid #fbfafa;
-        padding: 1px;
-        border-radius: 30px;
-        width: 60%;
-        text-align: center;
-        margin: 1px;
-        transition: filter 0.3s; /* Add transition for smooth hover effect */
-      }
+    
+/* CSS for image */
+#kortbilde {
+  border: 2px solid #fbfafa;
+  padding: 1px;
+  border-radius: 30px;
+  width: 60%;
+  text-align: center;
+  margin: 1px;
+  transition: filter 0.3s; /* Add transition for smooth hover effect */
+}
   
-      #kortbilde:hover {
-        filter: brightness(70%); /* Adjust brightness when hovered */
-      }
+#kortbilde:hover {
+  filter: brightness(70%); /* Adjust brightness when hovered */
+}
       
-
-
 .innhold {
     padding-left: 20%;
     padding-right: 20%;
@@ -84,11 +71,7 @@ rgb(101, 1, 114);
       5px 5px 0 #000, 
       7px 7px 0 #000; 
       text-decoration: none;
-
-
 }
-
-
 
 #overskrift2 {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;  /* Spillprosjekt overskriften */
@@ -101,8 +84,6 @@ rgb(101, 1, 114);
       5px 5px 0 #000, 
       7px 7px 0 #000; 
       text-decoration: none;
-
-
 }
 
 #overskrift3 {
@@ -116,13 +97,7 @@ rgb(101, 1, 114);
       5px 5px 0 #000, 
       7px 7px 0 #000; 
       text-decoration: none;
-
-
 }
-
-
-
-
 
 #bunntekst {
     text-align: center;
@@ -142,7 +117,6 @@ rgb(101, 1, 114);
 
 .gruppe2 {
     background-color: lightgrey;
-
 }
 
 #time {
@@ -153,10 +127,7 @@ rgb(101, 1, 114);
     padding: 10px;
     border-radius: 4px; 
     width: fit-content;
-  
-  }
-
-
+}
 
 #toggleButton {
 height: 60px;
@@ -171,12 +142,10 @@ width: 250px;
       5px 5px 0 #000, 
       7px 7px 0 #000; 
 
-
 border: 2px solid #ffffff;
 padding: 1px;
 border-radius: 20px;
 color: #fdfcfc;
 background: 
 rgb(101, 1, 114);
-
 }
