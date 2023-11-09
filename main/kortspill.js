@@ -23,7 +23,7 @@ function formatTime(seconds, tideler) {
   let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
 
   // Gjør om minutter, sekunder og tideler til en string
-  let timer = minutes + ":" + formattedSeconds + "." + tideler;
+  let timer = minutes + ":" + formattedSeconds + ":" + tideler;
   return timer;
 };
 
