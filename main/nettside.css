@@ -149,5 +149,7 @@ color: #fdfcfc;
 background: 
 rgb(101, 1, 114);
 position: absolute;
-left: 40%;
+left: 50%;
+transform: translateX(-50%);
+
 }
