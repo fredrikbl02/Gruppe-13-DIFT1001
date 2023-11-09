@@ -35,7 +35,7 @@ text-align: center;
 color: #fdfcfc;
 background: 
 rgb(101, 1, 114);
-
+margin-top: 70px;
 }
     
 /* CSS for image */
@@ -148,4 +148,6 @@ border-radius: 20px;
 color: #fdfcfc;
 background: 
 rgb(101, 1, 114);
+position: absolute;
+left: 40%;
 }
