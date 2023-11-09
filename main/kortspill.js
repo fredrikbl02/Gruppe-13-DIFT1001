@@ -1,14 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-  
-    const bak = document.getElementsByClassName("bak"); //henter ut alt med class "bak" og lagrer det i en variabel
-    const foran = document.getElementsByClassName("foran"); //henter ut alt med class "foran";
-    const kort = document.getElementsByClassName("kort"); //henter ut alt med class "kort";
+  const kort = document.getElementsByClassName("kort"); //henter ut alt med class "kort";
 
-
-    let seconds = 0;
-    let tideler = 0;
-    let timer = null;
-     //Timer
+  let seconds = 0;
+  let tideler = 0;
+  let timer = null;
 
       // Denne funksjonen gjør at dersom sekunder overstiger 60 blir det omgjort til minutter
       function formatTime(seconds, tideler) {
@@ -17,11 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let formattedSeconds = remainingSeconds.toString().padStart(2, '0');
         let timer = minutes + ":" + formattedSeconds + ":" + tideler;
         return timer;
-      }
+      };
 
      function startTimer () {
       const section = document.getElementById("section");
-      let functionCalled = false; // Flag to track if the function has been called
+      let functionCalled = false;
       let time = document.getElementById("time");
       time.innerText = formatTime(seconds, tideler);
  
@@ -38,35 +33,18 @@ document.addEventListener("DOMContentLoaded", function () {
             time.innerText = formatTime(seconds, tideler);
           }, 100); // legges til hvert tidel av et sekund
   
-          console.log("Function has been called");
           functionCalled = true;
   
           // Set the flag to true to prevent the function from being called again
           functionCalled = true;
           }});
- 
-
-    
     };
-   
-    
-    
-    function bakEventListener() {
-    for (const bakside of bak) { //dette er en for of loop som kjører gjennom hvert element med class "bak". 
-        bakside.addEventListener("click", function() { //her hører programmet etter et "click" på en av bildene med class "bak"
-          bakside.parentElement.classList.toggle("flipped"); //når den hører et klikk setter den en css style som heter "flipped" til true
-        });
-      };
-    };
-
-    bakEventListener();
-    
-    // dette er funksjon for å matche kort med hverandre
-    
+       
     let firstCard = null;
     let secondCard = null;
     let count = 0; 
     
+    // dette er funksjon for å matche kort med hverandre
     for (const kortside of kort) {
       kortside.addEventListener("click", function () {
         if (!firstCard && !kortside.classList.contains('matched')) {
@@ -80,9 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
           // Now, you can compare their data-framework values
           if (firstCard.dataset.framework === secondCard.dataset.framework && firstCard !== secondCard && !kortside.classList.contains('matched')) {
-            console.log("Match!");
+
             //teller opp antall matcher
-        
             if (count < 8) {
                 count++;
             };
@@ -100,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
             firstCard = null;
             secondCard = null;
           } else {
-            console.log("No match!");
             
             // If it's not a match, flip the cards back after a delay
             setTimeout(() => {
@@ -109,21 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
               firstCard = null;
               secondCard = null;
             }, 500);
-          }
-        }
+          };
+        };
       });
-    }
-    
-    // denne funksjonen viser verdien til kortene
-    
-    for (const kortside of kort) {
-      kortside.addEventListener("click", function () {
-        const clickedCardValue = kortside.dataset.framework;
-        console.log("Clicked card value forside: " + clickedCardValue);
-        
-      });
-    }
-    
+    };
     
     shuffleCards();
     
@@ -135,8 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
           kort.style.order = randomPos;
       });
     }
-
-
 
     startTimer();
 
@@ -150,9 +113,7 @@ function timeToSeconds(time) {
 }
 
 //Legger til highscore i arrayen og sorterer den etter tid
-
 function addHighscore() {
-  console.log("suksess");
   let tid = formatTime(seconds, tideler);
   let navn = prompt("Gratulerer! Skriv inn navnet ditt her: ");
 
@@ -163,11 +124,10 @@ function addHighscore() {
       localStorage.setItem('highscores', JSON.stringify(highscores));
       
       displayHighscores();
-  }
+  };
 
-  //Viser highscores 
-
-  function displayHighscores() {
+//Viser highscores 
+function displayHighscores() {
       let highScoresList = document.getElementById("highscore");
       highScoresList.innerHTML = '';
 
@@ -175,24 +135,20 @@ function addHighscore() {
           let listItem = document.createElement("li");
           listItem.innerText = highscore.name + ": " + highscore.score;
           highScoresList.appendChild(listItem);
-
-          
       });
-  }
+  };
 
   //Loader highscores fra local storage når siden lastes inn
-
   window.onload = function() {
     highscores = JSON.parse(localStorage.getItem('highscores')) || [];
     displayHighscores();
   };
 
   //Ny runde
-
   document.getElementById("newGame").onclick = () => {     
     if (count !== 8) {
       return
-    }
+    };
 
     for (const kortside of kort) {
       kortside.classList.remove('flipped', 'matched');
@@ -205,12 +161,11 @@ function addHighscore() {
     
     if (timer !== null) {
       clearInterval(timer);
-  }
+  };
     seconds = 0;
     tideler = 0;
     startTimer();
  };
-
 });
 
 
